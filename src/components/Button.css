@@ -1,0 +1,414 @@
+/* ======================================================
+   BUTTON BASE
+====================================================== */
+
+.btn {
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:8px;
+
+width:auto;
+
+flex-shrink:0;  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+
+  border-radius: 8px;
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    border .25s ease,
+    box-shadow .25s ease,
+    transform .18s ease;
+
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn svg{
+    flex-shrink:0;
+}
+
+/* ======================================================
+   SIZES
+====================================================== */
+
+/* ======================================================
+   BUTTON SIZES
+====================================================== */
+
+.btn-small{
+
+    height:32px;
+
+    min-width:auto;
+
+    padding:0 18px;
+
+    font-size:13px;
+
+}
+
+.btn-medium{
+
+    height:40px;
+
+    min-width:auto;
+
+    padding:0 24px;
+
+    font-size:14px;
+
+}
+
+.btn-large{
+
+    height:46px;
+
+    min-width:auto;
+
+    padding:0 30px;
+
+    font-size:15px;
+
+}
+/* ======================================================
+   ICON ONLY
+====================================================== */
+
+.btn-icon-only{
+
+    width:38px;
+    min-width:38px;
+
+    height:38px;
+
+    padding:0;
+
+}
+
+.btn-icon-only.btn-small{
+
+    width:32px;
+    min-width:32px;
+
+    height:32px;
+
+}
+
+/* ======================================================
+   MOBILE TAP TARGETS (375px devices)
+   Bumps small/icon-only buttons up to a comfortable
+   touch target size on phones without changing desktop
+   density.
+====================================================== */
+
+@media (max-width: 480px){
+
+    .btn-small{
+        height:40px;
+        padding:0 16px;
+    }
+
+    .btn-icon-only,
+    .btn-icon-only.btn-small{
+        width:40px;
+        min-width:40px;
+        height:40px;
+    }
+
+}
+
+.btn-icon-only.btn-large{
+
+    width:44px;
+    min-width:44px;
+
+    height:44px;
+
+}
+
+/* ======================================================
+   PRIMARY
+====================================================== */
+
+.btn-primary{
+
+    background:#004C48;
+
+    color:white;
+
+    box-shadow:
+        0 4px 10px rgba(0,76,72,.18);
+
+}
+
+.btn-primary:hover{
+
+    background:#003D3A;
+
+}
+
+/* ======================================================
+   SECONDARY
+====================================================== */
+
+.btn-secondary{
+
+    background:white;
+
+    color:#004C48;
+
+    border:1px solid #D8E2EC;
+
+}
+
+.btn-secondary:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* ======================================================
+   DANGER
+====================================================== */
+
+.btn-danger{
+
+    background:#EF4444;
+
+    color:white;
+
+    box-shadow:
+        0 4px 10px rgba(239,68,68,.20);
+
+}
+
+.btn-danger:hover{
+
+    background:#E53935;
+
+}
+
+/* ======================================================
+   SUCCESS
+====================================================== */
+
+.btn-success{
+
+    background:#22C55E;
+
+    color:white;
+
+    box-shadow:
+        0 4px 10px rgba(34,197,94,.20);
+
+}
+
+.btn-success:hover{
+
+    background:#16A34A;
+
+}
+
+/* ======================================================
+   DARK ICON BUTTON
+====================================================== */
+
+.btn-icon-dark{
+
+    background:#004C48;
+
+    color:white;
+
+    box-shadow:
+        0 3px 8px rgba(0,76,72,.18);
+
+}
+
+.btn-icon-dark:hover{
+
+    background:#003D3A;
+
+}
+
+/* ======================================================
+   LIGHT ICON BUTTON
+====================================================== */
+
+.btn-icon-light{
+
+    background:white;
+
+    color:#004C48;
+
+    border:1px solid #D8E2EC;
+
+}
+
+.btn-icon-light:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* ======================================================
+   DISABLED
+====================================================== */
+
+.btn-disabled{
+
+    background:#EEF2F6;
+
+    color:#A5AFBB;
+
+    border:none;
+
+    cursor:not-allowed;
+
+    box-shadow:none;
+
+}
+
+.btn-disabled:hover{
+
+    background:#EEF2F6;
+
+}
+
+/* ======================================================
+   BUTTON TEXT
+====================================================== */
+
+.btn-text{
+
+    display:flex;
+    align-items:center;
+
+}
+
+/* ======================================================
+   ICON
+====================================================== */
+
+.btn-icon{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+}
+
+.btn-icon svg{
+
+    width:16px;
+    height:16px;
+
+}
+
+/* ======================================================
+   LOADING
+====================================================== */
+
+.btn-loading{
+
+    min-width:118px;
+
+}
+
+.btn-spinner{
+
+    animation:spin .9s linear infinite;
+
+}
+
+/* ======================================================
+   DISABLED ATTRIBUTE
+====================================================== */
+
+.btn:disabled{
+
+    pointer-events:none;
+
+    opacity:1;
+
+}
+
+/* ======================================================
+   ACTIVE
+====================================================== */
+
+.btn:active:not(:disabled){
+
+    transform:scale(.97);
+
+}
+
+/* ======================================================
+   HOVER
+====================================================== */
+
+.btn:hover:not(:disabled){
+
+    transform:translateY(-1px);
+
+}
+
+/* ======================================================
+   SPINNER
+====================================================== */
+
+@keyframes spin{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media(max-width:900px){
+
+.btn-medium{
+
+height:36px;
+
+padding:0 18px;
+
+}
+
+.btn-large{
+
+height:42px;
+
+padding:0 22px;
+
+}
+
+}

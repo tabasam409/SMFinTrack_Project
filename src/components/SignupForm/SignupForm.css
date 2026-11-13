@@ -1,0 +1,354 @@
+/* Reset that's easy to accidentally lose if this ends up being your only
+   stylesheet (e.g. you deleted Vite's default index.css) */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* .signup-page {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f6f7;
+  padding: 24px;
+  font-family: "Segoe UI", Roboto, -apple-system, sans-serif;
+} */
+.signup-page {
+
+    width:100%;
+
+    min-height:100vh;
+    min-height: 100dvh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#F4F6F7;
+
+    padding:0;
+
+    font-family:"Segoe UI",Roboto,-apple-system,sans-serif;
+
+}
+
+.signup-card{
+
+    display:flex;
+
+    width:min(1200px,96vw);
+
+    min-height:92vh;
+
+    background:#FFFFFF;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:0 18px 55px rgba(15,61,51,.08);
+
+}
+
+/* Left promo panel */
+.signup-promo {
+  flex: 1;
+  background: #e3f1ec;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.brand-name {
+  font-size: 40px;
+  font-weight: 700;
+  color: #0f3d33;
+}
+
+.promo-tagline {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f3d33;
+  line-height: 1.4;
+  margin-bottom: 32px;
+  margin-left: 160px;
+}
+
+.promo-illustration {
+  flex: 1;
+  border-radius: 16px;
+  background: #d7ece4;
+  /* Empty on purpose — add your own image here, e.g.:
+     background: url("/your-image.png") center/cover no-repeat; */
+}
+
+/* Right form panel */
+.signup-form-panel {
+  flex: 0.8;
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0f3d33;
+  margin: 0 0 6px;
+  text-align: center;
+}
+
+.signup-subtitle {
+  font-size: 14px;
+  color: #6b7a76;
+  margin: 0 0 28px;
+  text-align: center;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f3d33;
+  margin-bottom: 6px;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d9e2e0;
+  border-radius: 10px;
+  padding: 0 12px;
+  background: #fff;
+  transition: border-color 0.15s ease;
+}
+
+.input-wrap:focus-within {
+  border-color: #0f766e;
+}
+
+.input-wrap.input-error {
+  border-color: #d64545;
+}
+
+.input-wrap.input-valid {
+  border-color: #0f766e;
+}
+
+.status-icon {
+  display: flex;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  opacity: 0.8;
+}
+
+.input-wrap input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #0f3d33;
+  background: transparent;
+}
+
+.input-wrap input::placeholder {
+  color: #a3b0ad;
+}
+
+.toggle-visibility {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.8;
+}
+
+.toggle-visibility:hover {
+  opacity: 1;
+}
+
+.field-error {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #d64545;
+}
+
+.api-error {
+  background: #fdecec;
+  color: #b3261e;
+  border: 1px solid #f5c2c2;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.signup-button {
+  margin-top: 8px;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: #0f766e;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.signup-button:hover:not(:disabled) {
+  background: #0c5c55;
+}
+
+.signup-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.login-hint {
+  text-align: center;
+  font-size: 13px;
+  color: #6b7a76;
+  margin-top: 6px;
+}
+
+.login-hint a {
+  color: #0f766e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-hint a:hover {
+  text-decoration: underline;
+}
+
+.login-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #0f766e;
+  font-weight: 600;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Success state */
+.success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #e3f1ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.success-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #0f3d33;
+  margin: 0 0 8px;
+}
+
+.success-subtitle {
+  font-size: 14px;
+  color: #6b7a76;
+  margin: 0 0 22px;
+  max-width: 260px;
+}
+
+.success-spinner {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid #e3f1ec;
+  border-top-color: #0f766e;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .success-spinner {
+    animation: none;
+  }
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .signup-card {
+    flex-direction: column;
+  }
+
+  .signup-promo {
+    display: none; /* keep it simple on mobile, form is the priority */
+  }
+
+  .signup-form-panel {
+    padding: 32px 24px;
+  }
+}

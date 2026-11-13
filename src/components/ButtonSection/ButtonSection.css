@@ -1,0 +1,487 @@
+/* ==========================================================
+   BUTTON SECTION
+========================================================== */
+
+.button-section {
+  width: 100%;
+  margin-top: 36px;
+  margin-bottom: 64px;
+}
+
+.section-title {
+  margin: 0 0 28px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+
+  color: #172B4D;
+}
+
+/* ==========================================================
+   BUTTON TABLE
+========================================================== */
+
+.button-table {
+
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    135px
+    repeat(6, minmax(120px, 1fr));
+
+  column-gap: 22px;
+  row-gap: 14px;
+
+  align-items: center;
+
+  background: #FFFFFF;
+
+  border: 1px solid #E8EDF3;
+
+  border-radius: 20px;
+
+  padding:
+    30px
+    26px
+    26px;
+
+  box-shadow:
+    0 10px 28px rgba(15, 23, 42, .05);
+
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   REMOVE DEFAULT GRID STYLING
+========================================================== */
+
+.button-table>* {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  min-height: 54px;
+
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   COLUMN HEADINGS
+========================================================== */
+
+.table-heading {
+
+  justify-content: center;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: #2C4766;
+
+  letter-spacing: .2px;
+
+  white-space: nowrap;
+
+  min-height: 32px;
+}
+
+/* Empty top-left corner */
+
+.button-table>div:first-child {
+
+  visibility: hidden;
+
+}
+
+/* ==========================================================
+   ROW LABELS
+========================================================== */
+
+.row-title {
+
+  justify-content: flex-start;
+
+  padding-left: 4px;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: #23395B;
+
+  white-space: nowrap;
+
+  min-height: 48px;
+}
+
+/* ==========================================================
+   BUTTON CELL
+========================================================== */
+
+.button-table button {
+
+  margin: 0;
+
+  flex-shrink: 0;
+
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   ICON BUTTON GROUP
+========================================================== */
+
+.icon-group {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 16px;
+
+  width: 100%;
+}
+
+/* ==========================================================
+   SPINNER
+========================================================== */
+
+.spinner {
+
+  color: #64748B;
+
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+/* ==========================================================
+   TABLE POLISH
+========================================================== */
+
+.button-table {
+
+  transition:
+    box-shadow .25s ease,
+    transform .25s ease;
+}
+
+.button-table:hover {
+
+  box-shadow:
+    0 14px 36px rgba(15, 23, 42, .08);
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:1200px) {
+
+  .button-table {
+
+    min-width: 980px;
+
+  }
+
+}
+
+@media (max-width:992px) {
+
+  .button-section {
+
+    overflow-x: auto;
+
+    padding-bottom: 10px;
+
+  }
+
+}
+
+@media (max-width:768px) {
+
+  .section-title {
+
+    font-size: 26px;
+
+  }
+
+}
+/* ===================================================
+   ICON GROUP
+=================================================== */
+
+.icon-group{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    width:100%;
+}
+
+.icon-group .btn{
+    flex-shrink:0;
+}
+
+/* ===================================================
+   BUTTON ALIGNMENT
+=================================================== */
+
+.button-table button{
+    margin:0;
+    white-space:nowrap;
+}
+
+.button-table svg{
+    flex-shrink:0;
+}
+
+/* ===================================================
+   SPINNER
+=================================================== */
+
+.spinner{
+    color:#64748B;
+    animation:buttonSpin .9s linear infinite;
+}
+
+@keyframes buttonSpin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* ===================================================
+   TABLE HOVER
+=================================================== */
+
+.button-table{
+
+    transition:
+    box-shadow .25s ease,
+    transform .25s ease;
+
+}
+
+.button-table:hover{
+
+    box-shadow:
+    0 12px 34px rgba(15,23,42,.08);
+
+}
+
+/* ===================================================
+   BUTTON HOVER
+=================================================== */
+
+.button-table .btn{
+
+    transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    filter .18s ease;
+
+}
+
+.button-table .btn:hover:not(:disabled){
+
+    transform:translateY(-2px);
+
+}
+
+.button-table .btn:active:not(:disabled){
+
+    transform:translateY(0);
+
+}
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+@media (max-width:1200px){
+
+.button-table{
+
+    grid-template-columns:
+    120px
+    repeat(6,minmax(120px,1fr));
+
+}
+
+.button-table>*{
+
+    min-height:74px;
+
+    padding:14px;
+
+}
+
+.table-heading{
+
+    font-size:14px;
+
+}
+
+.row-title{
+
+    font-size:14px;
+
+}
+
+}
+
+/* ===================================================
+   SCROLL ON SMALL SCREENS
+=================================================== */
+
+@media (max-width:992px){
+
+.button-section{
+
+    overflow-x:auto;
+
+    padding-bottom:10px;
+
+}
+
+.button-table{
+
+    min-width:980px;
+
+}
+
+}
+
+/* ===================================================
+   MOBILE
+=================================================== */
+
+@media (max-width:768px){
+
+.section-title{
+
+    font-size:24px;
+
+    margin-bottom:24px;
+
+}
+
+.button-table{
+
+    min-width:920px;
+
+}
+
+.button-table>*{
+
+    min-height:70px;
+
+    padding:12px;
+
+}
+
+.table-heading{
+
+    font-size:13px;
+
+}
+
+.row-title{
+
+    padding-left:18px;
+
+    font-size:13px;
+
+}
+
+}
+
+/* ===================================================
+   FADE ANIMATION
+=================================================== */
+
+.button-section{
+
+    animation:fadeIn .45s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===================================================
+   FINAL POLISH
+=================================================== */
+
+.button-table *{
+
+    box-sizing:border-box;
+
+}
+
+.button-table .btn{
+
+    flex-shrink:0;
+
+}
+
+.button-table .row-title{
+
+    user-select:none;
+
+}
+
+.table-heading{
+
+    user-select:none;
+
+}

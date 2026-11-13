@@ -1,0 +1,328 @@
+/* =====================================================
+   NOTIFICATION CENTER
+======================================================*/
+
+.nc-root {
+  position: relative;
+  display: inline-flex;
+}
+
+.nc-bell-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.nc-bell-btn:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.nc-bell-btn.is-active {
+  border-color: #2fa8a0;
+  background: #eafbf8;
+  color: #04785a;
+}
+
+.nc-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #ef4444;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+/* ---------- Panel ---------- */
+
+.nc-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 340px;
+  max-height: 420px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 32, 30, 0.14);
+  overflow: hidden;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+}
+
+/* T15 fix: this panel positioned itself with `right: 0` relative to the
+   bell button — not the screen — and a fixed 340px width. On mobile the
+   bell sits well short of the real right edge of the screen (there's a
+   settings icon and avatar after it), so a 340px-wide panel anchored
+   there ran off the *left* edge of the screen, cutting off most of every
+   notification's text ("Notifications" showed as just "...ons"). Below
+   480px, anchor the panel to the viewport itself instead of the bell, so
+   it's always fully on-screen no matter where the bell sits in the
+   header. */
+@media (max-width: 480px) {
+  .nc-panel {
+    position: fixed;
+    top: 60px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-height: calc(100vh - 90px);
+    max-height: calc(100dvh - 90px);
+  }
+}
+
+.nc-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.nc-panel-title {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #004c48;
+  margin: 0;
+}
+
+.nc-panel-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nc-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  border: none;
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nc-icon-btn:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.nc-markread-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid #bceee8;
+  background: #eafbf8;
+  color: #04785a;
+  font-family: "Inter", sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.nc-markread-btn:hover:not(:disabled) {
+  background: #d3f5e4;
+}
+
+.nc-markread-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.nc-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: #004c48;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nc-back-btn:hover {
+  color: #2fa8a0;
+}
+
+/* ---------- List ---------- */
+
+.nc-list {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.nc-empty {
+  padding: 28px 16px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 13px;
+  font-family: "Inter", sans-serif;
+}
+
+.nc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.nc-item:last-child {
+  border-bottom: none;
+}
+
+.nc-item.is-unread {
+  background: #f7fbfa;
+}
+
+.nc-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.nc-item-icon--budget {
+  background: #fef1d9;
+  color: #b9760a;
+}
+
+.nc-item-icon--general {
+  background: #e2f6f4;
+  color: #2fa8a0;
+}
+
+.nc-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.nc-item-message {
+  margin: 0 0 4px;
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #1f2937;
+}
+
+.nc-item-date {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.nc-item-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #2fa8a0;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ---------- Settings ---------- */
+
+.nc-settings {
+  padding: 6px 16px 16px;
+  overflow-y: auto;
+}
+
+.nc-setting-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.nc-setting-row:last-child {
+  border-bottom: none;
+}
+
+.nc-setting-title {
+  margin: 0 0 3px;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.nc-setting-desc {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 11.5px;
+  color: #9ca3af;
+  line-height: 1.4;
+  max-width: 220px;
+}
+
+.nc-toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  border: none;
+  background: #e5e7eb;
+  cursor: pointer;
+  padding: 2px;
+  transition: background 0.2s ease;
+}
+
+.nc-toggle.is-on {
+  background: #2fa8a0;
+}
+
+.nc-toggle-knob {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.nc-toggle.is-on .nc-toggle-knob {
+  transform: translateX(18px);
+}

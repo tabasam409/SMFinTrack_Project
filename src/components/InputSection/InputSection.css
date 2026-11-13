@@ -1,0 +1,188 @@
+/* ==========================================
+   INPUT SECTION
+========================================== */
+
+.input-section{
+    width:100%;
+    margin-top:64px;
+    margin-bottom:70px;
+}
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.input-section .section-title{
+    margin:0 0 34px;
+    font-family:"Manrope",sans-serif;
+    font-size:30px;
+    font-weight:800;
+    color:#172B4D;
+}
+
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
+
+.input-layout{
+
+    display:grid;
+
+    grid-template-columns:2.1fr 1fr;
+
+    gap:42px;
+
+    align-items:flex-start;
+
+}
+
+/* ==========================================
+   LEFT SIDE
+========================================== */
+
+.input-left{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px 28px;
+
+    padding-right:40px;
+
+    border-right:1px solid #E8EDF3;
+
+}
+
+/* ==========================================
+   RIGHT SIDE
+========================================== */
+
+.input-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/* ==========================================
+   INPUT WIDTH
+========================================== */
+
+.input-left .input-wrapper,
+.input-right .input-wrapper{
+
+    width:100%;
+
+}
+
+/* ==========================================
+   TEXTAREA
+========================================== */
+
+.input-right .text-area{
+
+    min-height:110px;
+
+}
+
+/* ==========================================
+   HELPER TEXT
+========================================== */
+
+.input-left .input-helper{
+
+    margin-top:6px;
+
+}
+
+/* ==========================================
+   LABEL SPACING
+========================================== */
+
+.input-label{
+
+    margin-bottom:6px;
+
+}
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.input-left .input-wrapper,
+.input-right .input-wrapper{
+
+    transition:.25s ease;
+
+}
+
+.input-left .input-wrapper:hover,
+.input-right .input-wrapper:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+.input-layout{
+
+grid-template-columns:1fr;
+
+gap:36px;
+
+}
+
+.input-left{
+
+border-right:none;
+
+padding-right:0;
+
+padding-bottom:20px;
+
+border-bottom:1px solid #E8EDF3;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.input-left{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:650px){
+
+.input-left{
+
+grid-template-columns:1fr;
+
+}
+
+.input-right{
+
+gap:20px;
+
+}
+
+.input-section .section-title{
+
+font-size:26px;
+
+}
+
+}

@@ -1,0 +1,472 @@
+/* ==========================================
+   CARD SECTION
+========================================== */
+
+.card-section{
+
+    width:100%;
+
+    margin-top:70px;
+
+    margin-bottom:80px;
+
+}
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+.card-section .section-title{
+
+    margin:0 0 34px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    color:#172B4D;
+
+}
+
+/* ==========================================
+   CARD GRID
+========================================== */
+/* ==========================================
+   CARD GRID - SINGLE ROW
+========================================== */
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+/* ==========================================
+   CARD WRAPPER
+========================================== */
+
+.card-grid .card{
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* ==========================================
+   CARD BODY
+========================================== */
+
+.card-body{
+
+    flex:1;
+
+}
+
+/* ==========================================
+   FORECAST EXTRA
+========================================== */
+
+.forecast-extra{
+
+    margin-top:18px;
+
+}
+
+.forecast-bar{
+
+    width:100%;
+
+    height:8px;
+
+    background:#EEF2F6;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.forecast-fill{
+
+    width:78%;
+
+    height:100%;
+
+    background:#8B5CF6;
+
+    border-radius:999px;
+
+}
+
+/* ==========================================
+   SUBSCRIPTION
+========================================== */
+
+.subscription-logo{
+
+    width:60px;
+
+    height:60px;
+
+    margin-top:16px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#FFF7E6;
+
+    color:#F59E0B;
+
+}
+
+.subscription-logo svg{
+
+    width:30px;
+
+    height:30px;
+
+}
+
+/* ==========================================
+   CARD SPACING
+========================================== */
+
+.card-title{
+
+    margin-bottom:4px;
+
+}
+
+.card-secondary{
+
+    margin-top:-6px;
+
+}
+
+.card-footer{
+
+    margin-top:20px;
+
+}
+/* ==========================================
+   CARD GRID RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+    .card-grid{
+
+        gap:24px;
+
+    }
+
+}
+
+
+/* ==========================================
+   TABLET VIEW
+========================================== */
+
+@media(max-width:992px){
+
+    .card-grid{
+
+        grid-template-columns:1fr;
+
+        gap:24px;
+
+    }
+
+
+    .card-section{
+
+        margin-top:60px;
+
+        margin-bottom:60px;
+
+    }
+
+
+    .card-section .section-title{
+
+        font-size:28px;
+
+    }
+
+}
+
+
+/* ==========================================
+   MOBILE VIEW
+========================================== */
+
+@media(max-width:650px){
+
+    .card-section{
+
+        margin-top:45px;
+
+        margin-bottom:50px;
+
+    }
+
+
+    .card-section .section-title{
+
+        font-size:24px;
+
+        margin-bottom:25px;
+
+    }
+
+
+    .card-grid{
+
+        gap:20px;
+
+    }
+
+
+    .card-grid .card{
+
+        border-radius:16px;
+
+    }
+
+}
+
+
+/* ==========================================
+   FORECAST ANIMATION
+========================================== */
+
+.forecast-fill{
+
+    animation:
+
+    forecastProgress 1.2s ease forwards;
+
+}
+
+
+@keyframes forecastProgress{
+
+    from{
+
+        width:0;
+
+    }
+
+    to{
+
+        width:78%;
+
+    }
+
+}
+
+
+/* ==========================================
+   SUBSCRIPTION POLISH
+========================================== */
+
+.subscription-logo{
+
+    transition:
+
+    transform .25s ease,
+
+    box-shadow .25s ease;
+
+}
+
+
+.card-subscription:hover .subscription-logo{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 8px 20px rgba(245,158,11,.18);
+
+}
+
+
+/* ==========================================
+   CARD HOVER REFINEMENT
+========================================== */
+
+.card-grid .card{
+
+    transition:
+
+    transform .25s ease,
+
+    box-shadow .25s ease;
+
+}
+
+
+.card-grid .card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+/* ==========================================
+   ALIGNMENT FIXES
+========================================== */
+
+.card-grid .card-header{
+
+    min-height:60px;
+
+}
+
+
+.card-grid .card-body{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+/* ==========================================
+   FOOTER CONSISTENCY
+========================================== */
+
+.card-grid .card-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+}
+
+
+.card-grid .card-footer-text{
+
+    line-height:1.5;
+
+}
+
+
+/* ==========================================
+   ICON RESPONSIVE SIZE
+========================================== */
+
+@media(max-width:768px){
+
+    .subscription-logo{
+
+        width:52px;
+
+        height:52px;
+
+    }
+
+
+    .subscription-logo svg{
+
+        width:26px;
+
+        height:26px;
+
+    }
+
+
+    .forecast-bar{
+
+        height:7px;
+
+    }
+
+}
+
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+.card-grid .card:focus-within{
+
+    outline:
+
+    3px solid rgba(47,168,160,.2);
+
+    outline-offset:4px;
+
+}
+
+
+/* ==========================================
+   SMOOTH RENDERING
+========================================== */
+
+.card-section{
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
+
+}
+
+
+/* ==========================================
+   FINAL SPACING POLISH
+========================================== */
+
+.card-grid .card-title{
+
+    letter-spacing:-0.2px;
+
+}
+
+
+.card-grid .card-amount{
+
+    letter-spacing:-0.5px;
+
+}
+
+
+.card-grid .card-subtitle{
+
+    line-height:1.4;
+
+}
+
+
+/* ==========================================
+   EMPTY SPACE CONTROL
+========================================== */
+
+.card-grid{
+
+    width:100%;
+
+}
+
+
+.card-grid > *{
+
+    min-width:0;
+
+}

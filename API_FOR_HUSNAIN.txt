@@ -1,0 +1,173 @@
+SMFinTrack — ADMIN DASHBOARD API CONTRACT
+=========================================
+
+The frontend is fully built and expects the exact shapes below. Return these
+structures and the admin dashboard will connect.
+
+Base URL: https://unthematic-ta-soaringly.ngrok-free.dev
+Auth: Frontend sends "Authorization: Bearer <token>" on every request.
+      Token is stored in localStorage under key "smfintrack_token".
+
+NOTE: These admin endpoints do NOT exist yet. Only auth endpoints
+(signup / login / logout) are live. Create the 3 endpoints below.
+
+
+====================================================================
+1) GET /api/admin/dashboard-stats
+====================================================================
+Purpose: Platform KPIs, traffic chart, popular categories table.
+
+Response:
+{
+  "metrics": {
+    "totalUsers": {
+      "value": 12450,
+      "badge": { "direction": "up", "value": "+14% this month" }
+    },
+    "totalTransactions": {
+      "value": 3820,
+      "badge": { "direction": "up", "value": "+12.8% vs last week" }
+    },
+    "signupsThisWeek": {
+      "value": 348,
+      "badge": { "direction": "down", "value": "-1.4% vs last week" }
+    }
+  },
+  "trafficHistory": [
+    { "day": "Mon", "requests": 4200 },
+    { "day": "Tue", "requests": 4900 },
+    { "day": "Wed", "requests": 5800 },
+    { "day": "Thu", "requests": 5100 },
+    { "day": "Fri", "requests": 7200 },
+    { "day": "Sat", "requests": 8400 },
+    { "day": "Sun", "requests": 9100 }
+  ],
+  "popularCategories": [
+    { "id": "cat_food", "name": "Food & Dining", "ruleCount": 34, "transactionCount": 9840, "color": "#2FA8A0" },
+    { "id": "cat_transport", "name": "Transport", "ruleCount": 21, "transactionCount": 6720, "color": "#1B3A5C" },
+    { "id": "cat_bills", "name": "Bills & Utilities", "ruleCount": 18, "transactionCount": 5310, "color": "#F59E0B" }
+  ]
+}
+
+Notes:
+- trafficHistory = trailing 7 days, one object per day.
+- popularCategories = ordered by rank across all platform transactions.
+- badge.direction = "up" or "down" (drives the trend arrow).
+- color = hex string (category dot + progress bar).
+
+
+====================================================================
+2) GET /api/admin/users          (User Management page)
+====================================================================
+Purpose: List all registered accounts.
+
+Response:
+{
+  "users": [
+    { "id": "usr_001", "first_name": "Aisha", "last_name": "Khan", "email": "aisha.khan@uni.edu", "university_name": "National University", "is_active": true, "created_at": "2026-07-12T09:24:00Z" },
+    { "id": "usr_002", "first_name": "Hamza", "last_name": "Ahmed", "email": "hamza.ahmed@uni.edu", "university_name": "Punjab University", "is_active": false, "created_at": "2026-07-18T14:02:00Z" }
+  ],
+  "total": 2
+}
+
+2a) PATCH /api/admin/users/{id}    (Block / Unblock)
+Body:
+{
+  "is_active": false
+}
+Response: updated user object (same shape as above).
+
+2b) POST /api/admin/users          (Add new user)
+Body:
+{
+  "first_name": "Sana",
+  "last_name": "Malik",
+  "email": "sana.malik@uni.edu",
+  "university_name": "National University",
+  "password": "somepassword"
+}
+Response: created user object.
+
+2c) DETAILS DRAWER FIELDS (optional but required for the drawer to
+    show transactions/budgets/subscriptions). The frontend reads these
+    extra fields on each user object and falls back gracefully if missing:
+
+{
+  "id": "usr_001",
+  "first_name": "Aisha",
+  "last_name": "Khan",
+  "email": "aisha.khan@uni.edu",
+  "account_status": "active",                 // "active" | "suspended" | "pending"
+  "is_active": true,
+  "created_at": "2026-07-12T09:24:00Z",
+  "last_active_at": "2026-08-14T10:40:00Z",
+  "spend_6mo": [7200, 8100, 6400, 9200, 8800, 9600],      // PKR, monthly, 6 points
+  "subscriptions_detected": 3,
+  "budgets": [
+    { "category": "Food & Dining", "limit": 5000, "used": 4200 }
+  ],
+  "transactions": [
+    { "id": "tx_a1", "merchant": "Cafe Aroma", "category": "Food & Dining", "color": "#2FA8A0", "type": "expense", "amount": 850, "date": "2026-08-14T09:20:00Z" },
+    { "id": "tx_a4", "merchant": "Monthly Salary", "category": "Income", "color": "#22C55E", "type": "deposit", "amount": 45000, "date": "2026-08-01T08:00:00Z" }
+  ],
+  "audit_log": [
+    { "who": "Nabeela Ashiq", "action": "Suspended account", "reason": "Terms violation", "at": "2026-08-10T09:00:00Z" }
+  ]
+}
+
+Notes:
+- transactions[].type = "expense" | "deposit" (drives +/- and green color).
+- transactions[].color = hex string for the category dot.
+- List transactions newest-first; drawer shows latest 5 + "+N more".
+- The drawer renders these if present, so they're nice-to-have, not blocking.
+
+
+====================================================================
+3) GET /api/admin/categories       (Category Management page)
+====================================================================
+Purpose: List spending categories + their mapping rules.
+
+Response:
+{
+  "categories": [
+    { "id": "cat_food", "name": "Food & Dining", "color": "#2FA8A0", "ruleCount": 34, "transactionCount": 9840, "rules": ["restaurant", "cafe", "coffee", "pizza", "burger"] },
+    { "id": "cat_transport", "name": "Transport", "color": "#1B3A5C", "ruleCount": 21, "transactionCount": 6720, "rules": ["uber", "careem", "petrol", "fuel", "toll"] }
+  ],
+  "total": 2
+}
+
+Notes:
+- rules = keyword / merchant rules mapped to this category.
+- transactionCount = how many transactions fell into this category.
+- color = hex string.
+
+3a) POST /api/admin/categories      (Add category)
+Body:
+{
+  "name": "Groceries",
+  "color": "#22C55E",
+  "rules": ["supermarket", "market", "grocery"]
+}
+Response: created category object.
+
+3b) PATCH /api/admin/categories/{id}   (Edit category)
+Body (partial, any subset):
+{
+  "name": "Groceries & Markets",
+  "rules": ["supermarket", "market", "grocery", "mart"]
+}
+Response: updated category object.
+
+3c) DELETE /api/admin/categories/{id}  (Delete category)
+Response: 200 / success.
+
+
+====================================================================
+FRONTEND INTEGRATION (for your own reference)
+====================================================================
+When the endpoints are live:
+1. Open src/components/AdminDashboard/adminApi.js
+2. Change USE_MOCK_DATA from true to false
+That's it. Every admin feature (dashboard stats, traffic, popular
+categories, user management, category management) switches from mock
+data to the real API automatically.

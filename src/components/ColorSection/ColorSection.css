@@ -1,0 +1,198 @@
+/* ==========================================================
+   COLOR SECTION
+   SMFinTrack Design System
+========================================================== */
+
+
+/* ==========================================================
+   SECTION
+========================================================== */
+
+.color-section{
+
+    width:100%;
+
+    margin-top:64px;
+
+    margin-bottom:72px;
+
+}
+
+.color-section *{
+
+    box-sizing:border-box;
+
+}
+
+
+/* ==========================================================
+   OUTER CARD
+========================================================== */
+
+.color-system-card{
+
+    width:100%;
+
+    background:#FFFFFF;
+
+    border:1px solid #E8EDF3;
+
+    border-radius:18px;
+
+    padding:22px 22px 20px;
+
+    box-shadow:
+        0 2px 8px rgba(15,23,42,.04),
+        0 10px 26px rgba(15,23,42,.05);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+
+}
+
+.color-system-card:hover{
+
+    transform:translateY(-2px);
+
+    border-color:#DCE4EC;
+
+    box-shadow:
+        0 10px 24px rgba(15,23,42,.08),
+        0 20px 42px rgba(15,23,42,.10);
+
+}
+
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.color-section-title{
+
+    margin:0 0 20px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:24px;
+
+    font-weight:800;
+
+    color:#172B4D;
+
+    line-height:1.2;
+
+}
+
+
+/* ==========================================================
+   COLOR LIST
+========================================================== */
+.color-list{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+    align-items:start;
+
+}
+
+.color-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+.color-list .color-card:not(:last-child){
+
+    border-bottom:1px solid #EEF2F6;
+
+    padding-bottom:10px;
+
+}
+
+
+/* ==========================================================
+   SCROLL SAFETY
+========================================================== */
+
+.color-system-card{
+
+    overflow:hidden;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:992px){
+
+    .color-system-card{
+
+        padding:20px;
+
+    }
+
+}
+
+
+@media (max-width:768px){
+
+    .color-section{
+
+        margin-top:48px;
+
+        margin-bottom:56px;
+
+    }
+
+    .color-system-card{
+
+        border-radius:16px;
+
+        padding:18px;
+
+    }
+
+    .color-section-title{
+
+        font-size:22px;
+
+        margin-bottom:18px;
+
+    }
+
+}
+
+
+@media (max-width:480px){
+
+    .color-system-card{
+
+        padding:16px;
+
+        border-radius:14px;
+
+    }
+
+    .color-section-title{
+
+        font-size:20px;
+
+    }
+
+}

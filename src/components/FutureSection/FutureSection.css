@@ -1,0 +1,200 @@
+/* =====================================================
+   FUTURE SECTION
+===================================================== */
+
+.future-section{
+
+    width:100%;
+
+    padding:28px 0 60px;
+
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.future-container{
+
+    max-width:1240px;
+
+    margin:0 auto;
+
+    padding:26px 34px;
+
+    background:#F4F8FC;
+
+    border:1px solid #E8EEF5;
+
+    border-radius:22px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.04);
+
+}
+
+/* =====================================================
+   ITEM
+===================================================== */
+
+.future-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.future-icon{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    background:linear-gradient(180deg,#EAFBF9,#DDF7F4);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#179C9B;
+
+    flex-shrink:0;
+
+}
+
+.future-icon svg{
+
+    stroke-width:2.1;
+
+}
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.future-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.future-content h3{
+
+    margin:0;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    color:#0F294A;
+
+}
+
+.future-content p{
+
+    margin:0;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    color:#6B7280;
+
+}
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.future-item{
+
+    transition:.30s;
+
+}
+
+.future-item:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.future-item:hover .future-icon{
+
+    transform:scale(1.08);
+
+}
+
+.future-icon{
+
+    transition:.30s;
+
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:992px){
+
+.future-container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+.future-section{
+
+padding:20px 0 40px;
+
+}
+
+.future-container{
+
+grid-template-columns:1fr;
+
+padding:24px;
+
+gap:24px;
+
+}
+
+.future-item{
+
+align-items:flex-start;
+
+}
+
+}

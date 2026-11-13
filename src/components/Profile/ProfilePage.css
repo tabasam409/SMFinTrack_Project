@@ -1,0 +1,783 @@
+/* =========================================================
+   SMFinTrack - PROFILE PAGE
+   Nested inside the app's .bsp-main shell (which already
+   accounts for the fixed .bsp-sidebar), so no extra offset
+   here — width/margin are handled by the parent shell.
+   ========================================================= */
+
+.profile-page {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 30px 32px 40px;
+
+  background: #f7f9fb;
+  color: #17202a;
+
+  font-family: "Inter", "Segoe UI", sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.profile-heading-row {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-bottom: 28px;
+
+  box-sizing: border-box;
+}
+
+
+.profile-heading-text {
+  min-width: 0;
+}
+
+
+.profile-heading-text h1 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 30px;
+  line-height: 38px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.5px;
+}
+
+
+.profile-heading-text p {
+  margin: 4px 0 0;
+
+  color: #64748b;
+
+  font-size: 15px;
+  line-height: 23px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+   ========================================================= */
+
+.profile-success-message {
+  width: 333px;
+  min-height: 60px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px 14px;
+
+  box-sizing: border-box;
+
+  background: #effbf1;
+
+  border: 1px solid #b9e3bf;
+
+  border-radius: 10px;
+
+  color: #19743a;
+
+  box-shadow:
+    0 3px 10px rgba(22, 101, 52, 0.06);
+}
+
+
+.success-icon {
+  width: 29px;
+  height: 29px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #35a853;
+
+  color: #ffffff;
+}
+
+
+.profile-success-message span {
+  flex: 1;
+
+  min-width: 0;
+
+  font-size: 14px;
+  line-height: 20px;
+
+  font-weight: 600;
+}
+
+
+.success-close {
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #32854a;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+
+.success-close:hover {
+  background: rgba(34, 197, 94, 0.10);
+}
+
+
+/* =========================================================
+   MAIN PROFILE CARD
+   ========================================================= */
+
+.profile-card {
+  width: 100%;
+
+  padding: 25px 26px 30px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e5eaee;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 4px 18px rgba(15, 41, 74, 0.06);
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.profile-card-header {
+  min-height: 67px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 19px;
+}
+
+
+.profile-card-icon {
+  width: 66px;
+  height: 66px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #d8f4f1;
+
+  color: #08736f;
+}
+
+
+.profile-card-heading {
+  min-width: 0;
+}
+
+
+.profile-card-heading h2 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 19px;
+  line-height: 25px;
+
+  font-weight: 700;
+}
+
+
+.profile-card-heading p {
+  margin: 3px 0 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 21px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.profile-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 19px 0 30px;
+
+  background: #e5e9ed;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.profile-form {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  column-gap: 16px;
+
+  row-gap: 25px;
+
+  box-sizing: border-box;
+}
+
+
+/* Every field */
+
+.profile-field {
+  min-width: 0;
+}
+
+
+/* University occupies both columns */
+
+.profile-field-full {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+.profile-field label {
+  display: block;
+
+  margin: 0 0 8px;
+
+  color: #145052;
+
+  font-size: 14px;
+  line-height: 20px;
+
+  font-weight: 700;
+}
+
+
+.profile-field label span {
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   INPUT WRAPPER
+   ========================================================= */
+
+.profile-input-wrapper {
+  width: 100%;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #d2dce2;
+
+  border-radius: 9px;
+
+  color: #8193a3;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.profile-input-wrapper:hover {
+  border-color: #bdcbd3;
+}
+
+
+.profile-input-wrapper:focus-within {
+  border-color: #149c97;
+
+  box-shadow:
+    0 0 0 3px rgba(20, 156, 151, 0.10);
+}
+
+
+.profile-input-wrapper svg {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+
+  color: #8193a3;
+}
+
+
+.profile-input-wrapper input,
+.profile-input-wrapper select {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #25323d;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  line-height: 20px;
+}
+
+
+.profile-input-wrapper input::placeholder {
+  color: #9aa8b5;
+}
+
+
+/* =========================================================
+   NUMBER INPUT
+   ========================================================= */
+
+.profile-input-wrapper input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+
+.profile-input-wrapper input[type="number"]::-webkit-inner-spin-button,
+.profile-input-wrapper input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.profile-select-wrapper {
+  position: relative;
+
+  padding-right: 42px;
+}
+
+
+.profile-select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+}
+
+
+.select-arrow {
+  position: absolute;
+
+  right: 13px;
+
+  width: 18px !important;
+  height: 18px !important;
+
+  color: #718096 !important;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ERROR STATE
+   ========================================================= */
+
+.profile-input-wrapper.input-error {
+  border-color: #dc2626;
+}
+
+
+.profile-input-wrapper.input-error:focus-within {
+  box-shadow:
+    0 0 0 3px rgba(220, 38, 38, 0.08);
+}
+
+
+.field-error {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #dc2626;
+
+  font-size: 12px;
+  line-height: 17px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   BOTTOM SECTION
+   ========================================================= */
+
+.profile-bottom {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    214px;
+
+  align-items: center;
+
+  column-gap: 35px;
+
+  margin-top: 27px;
+}
+
+
+/* =========================================================
+   INFORMATION BOX
+   ========================================================= */
+
+.profile-info-box {
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 17px;
+
+  box-sizing: border-box;
+
+  background: #effafa;
+
+  border: 1px solid #ccebea;
+
+  border-radius: 9px;
+}
+
+
+.profile-info-icon {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #087c78;
+
+  color: #ffffff;
+}
+
+
+.profile-info-box p {
+  margin: 0;
+
+  color: #41656c;
+
+  font-size: 13px;
+  line-height: 19px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+   ========================================================= */
+
+.save-profile-button {
+  width: 214px;
+  height: 53px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #078f8a;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 15px;
+  line-height: 20px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 10px rgba(7, 143, 138, 0.18);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.save-profile-button:hover {
+  background: #067d79;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 14px rgba(7, 143, 138, 0.23);
+}
+
+
+.save-profile-button:active {
+  transform: translateY(0);
+}
+
+
+.save-profile-button svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .profile-page {
+
+    padding: 26px 24px 35px;
+  }
+
+  .profile-heading-row {
+    gap: 20px;
+  }
+
+  .profile-success-message {
+    width: 310px;
+  }
+
+  .profile-bottom {
+    column-gap: 25px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .profile-page {
+
+    padding: 24px 20px 30px;
+  }
+
+  .profile-heading-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .profile-success-message {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .profile-bottom {
+    grid-template-columns:
+      minmax(0, 1fr)
+      190px;
+
+    column-gap: 20px;
+  }
+
+  .save-profile-button {
+    width: 190px;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .profile-page {
+
+    padding: 22px 18px 30px;
+  }
+
+  .profile-card {
+    padding: 22px;
+  }
+
+  .profile-form {
+    grid-template-columns: 1fr;
+
+    row-gap: 22px;
+  }
+
+  .profile-field-full {
+    grid-column: auto;
+  }
+
+  .profile-bottom {
+    grid-template-columns: 1fr;
+
+    row-gap: 18px;
+  }
+
+  .profile-info-box {
+    width: 100%;
+  }
+
+  .save-profile-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+  .profile-page {
+    padding: 18px 14px 25px;
+  }
+
+  .profile-heading-text h1 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .profile-heading-text p {
+    font-size: 14px;
+  }
+
+  .profile-card {
+    padding: 18px;
+
+    border-radius: 13px;
+  }
+
+  .profile-card-header {
+    align-items: flex-start;
+
+    gap: 14px;
+  }
+
+  .profile-card-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .profile-card-icon svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .profile-card-heading h2 {
+    font-size: 18px;
+  }
+
+  .profile-card-heading p {
+    font-size: 13px;
+
+    line-height: 19px;
+  }
+
+  .profile-divider {
+    margin: 18px 0 24px;
+  }
+
+  .profile-input-wrapper {
+    height: 48px;
+  }
+}

@@ -1,0 +1,245 @@
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer-section{
+    width:100%;
+    background:#0B1E3D;
+    padding:56px 34px 0;
+}
+
+/* =====================================================
+   TOP GRID
+===================================================== */
+
+.footer-top{
+    max-width:1240px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr 1.4fr;
+    gap:24px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.footer-brand .footer-logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#fff;
+    font-family:"Manrope",sans-serif;
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.footer-brand p{
+    font-family:"Inter",sans-serif;
+    font-size:13px;
+    color:#9CA9BE;
+    line-height:1.6;
+    margin:0 0 18px;
+}
+
+.footer-socials{
+    display:flex;
+    gap:10px;
+}
+
+.footer-socials a{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.06);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#CBD5E1;
+    transition:.25s;
+}
+
+.footer-socials a:hover{
+    background:#179C9B;
+    color:#fff;
+}
+
+/* =====================================================
+   LINK COLUMNS
+===================================================== */
+
+.footer-col h4{
+    font-family:"Manrope",sans-serif;
+    font-size:15px;
+    font-weight:700;
+    color:#fff;
+    margin:0 0 16px;
+}
+
+.footer-col a{
+    display:block;
+    font-family:"Inter",sans-serif;
+    font-size:13px;
+    color:#9CA9BE;
+    text-decoration:none;
+    margin-bottom:12px;
+    transition:.2s;
+}
+
+.footer-col a:hover{
+    color:#5EEAD4;
+}
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+.footer-newsletter h4{
+    font-family:"Manrope",sans-serif;
+    font-size:15px;
+    font-weight:700;
+    color:#fff;
+    margin:0 0 12px;
+}
+
+.footer-newsletter p{
+    font-family:"Inter",sans-serif;
+    font-size:13px;
+    color:#9CA9BE;
+    line-height:1.6;
+    margin:0 0 16px;
+}
+
+.newsletter-form{
+    display:flex;
+    gap:8px;
+}
+
+.newsletter-form input{
+    flex:1;
+    padding:10px 14px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.12);
+    /* background:rgba(255,255,255,0.05); */
+    color:#fff;
+    font-family:"Inter",sans-serif;
+    font-size:13px;
+    outline:none;
+    background:#fff;
+}
+
+.newsletter-form input::placeholder{
+    color:#7C8AA3;
+}
+
+.newsletter-form button{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    background:#179C9B;
+    color:#fff;
+    font-family:"Inter",sans-serif;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:.25s;
+}
+
+.newsletter-form button:hover{
+    background:#12807F;
+}
+
+.newsletter-form button:disabled{
+    opacity:.6;
+    cursor:default;
+}
+
+.newsletter-message{
+    font-family:"Inter",sans-serif;
+    font-size:12px;
+    line-height:1.5;
+    margin:10px 0 0;
+}
+
+.newsletter-success{
+    color:#4ADE80;
+}
+
+.newsletter-error{
+    color:#F87171;
+}
+
+/* =====================================================
+   BOTTOM BAR
+===================================================== */
+
+.footer-bottom{
+    max-width:1240px;
+    margin:0 auto;
+    padding:20px 0;
+    text-align:center;
+}
+
+.footer-bottom p{
+    margin:0;
+    font-family:"Inter",sans-serif;
+    font-size:12px;
+    color:#7C8AA3;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:992px){
+
+.footer-top{
+    grid-template-columns:1fr 1fr;
+    row-gap:32px;
+}
+
+.footer-brand{
+    grid-column:span 2;
+}
+
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+.footer-section{
+    padding:40px 20px 0;
+}
+
+.footer-top{
+    grid-template-columns:1fr;
+}
+
+.footer-brand{
+    grid-column:span 1;
+}
+
+.newsletter-form{
+    flex-direction:column;
+}
+
+}
+
+/* iOS Safari zoom-on-focus fix (T15): any text input under 16px makes
+   Safari on iPhone zoom the whole page in when it gains focus. The
+   newsletter input was 13px. 16px on touch devices only — desktop keeps
+   the smaller type scale defined above. */
+@media (hover: none) {
+
+.newsletter-form input {
+    font-size: 16px;
+}
+
+}

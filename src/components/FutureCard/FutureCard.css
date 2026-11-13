@@ -1,0 +1,36 @@
+.future-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 24px;
+  flex: 1;
+}
+
+.future-card-icon {
+  width: 48px;
+  height: 48px;
+  background: #e6f7f3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.future-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.future-card-desc {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.future-card-link {
+  color: #0f9d7f;
+  font-weight: 500;
+  text-decoration: none;
+}

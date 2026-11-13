@@ -1,0 +1,347 @@
+/* ==========================================================
+   POPUP SECTION
+   PART 1
+   Section • Grid • Cards • Header
+========================================================== */
+
+/* ==========================================================
+   SECTION
+========================================================== */
+
+.popup-section{
+
+    width:100%;
+
+    margin-top:64px;
+
+    margin-bottom:72px;
+
+}
+
+.popup-section *{
+
+    box-sizing:border-box;
+
+}
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.popup-section .section-title{
+
+    margin:0 0 32px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    color:#172B4D;
+
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.popup-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:28px;
+
+    align-items:start;
+
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+/* .popup-card{
+
+    background:#FFFFFF;
+
+    border:1px solid #E7EDF4;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:380px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+
+    box-shadow:
+        0 2px 8px rgba(15,23,42,.04),
+        0 14px 30px rgba(15,23,42,.05);
+
+}
+
+.popup-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#D9E2EC;
+
+    box-shadow:
+        0 10px 24px rgba(15,23,42,.08),
+        0 22px 44px rgba(15,23,42,.10);
+
+} */
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.popup-header{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    padding:22px 22px 18px;
+
+}
+
+/* ==========================================================
+   TITLE ROW
+========================================================== */
+
+.popup-title-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.popup-title-row h3{
+
+    margin:0;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    color:#172B4D;
+
+    line-height:1.3;
+
+}
+
+/* ==========================================================
+   HEADER ICON
+========================================================== */
+
+.popup-title-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    background:#EEF5FF;
+
+    color:#2563EB;
+
+}
+
+.popup-title-icon svg{
+
+    width:22px;
+
+    height:22px;
+
+}
+
+/* ==========================================================
+   VARIANT ICONS
+========================================================== */
+
+.popup-card.delete .popup-title-icon{
+
+    background:#FEECEC;
+
+    color:#DC2626;
+
+}
+
+.popup-card.success .popup-title-icon{
+
+    background:#DCFCE7;
+
+    color:#16A34A;
+
+}
+
+.popup-card.upload .popup-title-icon{
+
+    background:#EEF5FF;
+
+    color:#2563EB;
+
+}
+
+/* ==========================================================
+   CLOSE BUTTON
+========================================================== */
+
+.popup-close{
+
+    width:34px;
+
+    height:34px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:10px;
+
+    background:transparent;
+
+    color:#94A3B8;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+
+}
+
+.popup-close:hover{
+
+    background:#F4F7FA;
+
+    color:#1F2937;
+
+}
+
+.popup-close:active{
+
+    transform:scale(.95);
+
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+.popup-content{
+
+    flex:1;
+
+    padding:0 22px 22px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
+
+.popup-card h4{
+
+    margin:0;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#172B4D;
+
+}
+
+.popup-card p{
+
+    margin:0;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    color:#6B7280;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:1100px){
+
+    .popup-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .popup-grid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+    .popup-card{
+
+        min-height:auto;
+
+    }
+
+    .popup-section .section-title{
+
+        font-size:26px;
+
+    }
+
+}

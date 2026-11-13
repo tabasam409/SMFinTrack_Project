@@ -1,0 +1,313 @@
+/* =====================================================
+   ADMIN SIDEBAR
+   Mirrors the project's existing Sidebar.css visual language
+======================================================*/
+
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  height: 100dvh;
+  background: #004C48;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 50;
+  transition: transform 0.3s ease;
+}
+
+.admin-sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb {
+  background: #146F68;
+  border-radius: 20px;
+}
+
+/* Firefox doesn't support ::-webkit-scrollbar; give it the closest
+   native equivalent so the thin sidebar scrollbar isn't the bulky
+   default there. */
+.admin-sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: #146F68 transparent;
+}
+
+/* ================= Logo ================= */
+
+.admin-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 34px;
+  padding: 0 2px;
+}
+
+.admin-logo-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2CC0BA;
+  flex-shrink: 0;
+}
+
+.admin-sidebar-logo h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.4px;
+}
+
+/* ================= Section ================= */
+
+.admin-sidebar-section {
+  margin-bottom: 26px;
+  flex: 1;
+}
+
+.admin-sidebar-heading {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.admin-sidebar-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-sidebar-section li {
+  border-radius: 12px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.admin-sidebar-section li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #d8e1ec;
+  transition: all 0.25s ease;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.admin-sidebar-section li button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #d8e1ec;
+  background: transparent;
+  border: none;
+  transition: all 0.25s ease;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.admin-sidebar-section li a svg,
+.admin-sidebar-section li button svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.admin-sidebar-section li.active a,
+.admin-sidebar-section li.active button {
+  background: #BCEEE8;
+  color: #004C48;
+  font-weight: 600;
+  box-shadow: 0 8px 18px rgba(0, 76, 72, 0.18);
+}
+
+/* ================= Status card ================= */
+
+.admin-sidebar-promo {
+  width: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #c7eee9;
+  border-radius: 15px;
+  color: #003f3b;
+  margin-bottom: 14px;
+}
+
+.admin-sidebar-promo-image-wrapper {
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d8f3ef;
+}
+
+.admin-sidebar-promo-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.admin-sidebar-promo-content {
+  padding: 12px 14px 14px;
+  box-sizing: border-box;
+}
+
+.admin-sidebar-promo-content h3 {
+  margin: 0 0 6px;
+  color: #003b38;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.admin-sidebar-promo-content p {
+  margin: 0;
+  color: #174f4b;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.admin-sidebar-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(47, 168, 160, 0.1);
+  border: 1px solid rgba(47, 168, 160, 0.25);
+}
+
+.admin-sidebar-status-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.admin-sidebar-status-dot .dot {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #5eead4;
+}
+
+.admin-sidebar-status-dot .ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #5eead4;
+  opacity: 0.6;
+  animation: admin-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes admin-ping {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.admin-sidebar-status-title {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5eead4;
+  margin: 0 0 2px;
+}
+
+.admin-sidebar-status-text {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+/* ================= Logout ================= */
+
+.admin-sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  background: rgba(239, 68, 68, 0.08);
+  color: #ff9d9d;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.admin-sidebar-logout svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* ================= Mobile drawer ================= */
+
+.admin-sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .admin-sidebar-backdrop.show {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 29, 58, 0.4);
+    -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+    z-index: 40;
+  }
+}

@@ -1,0 +1,217 @@
+/* =====================================================
+   GOOGLE FONTS
+===================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap");
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+
+    /* T15 — safety net against horizontal scroll on mobile: `body` already
+       clips overflow-x, but a translated/fixed element (e.g. the admin
+       sidebar sliding off-screen) can in some Android WebViews still
+       enlarge the document's scrollable width. Clipping at the `html`
+       level too closes that gap. */
+    overflow-x:hidden;
+    width:100%;
+
+}
+
+body{
+
+    margin:0;
+
+    background:#F7F9FB;
+
+    font-family:"Inter",sans-serif;
+
+    color:#1F2937;
+
+    overflow-x:hidden;
+
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+button{
+
+    font-family:inherit;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+#root{
+
+    width:100%;
+
+    min-height:100vh;
+    min-height: 100dvh;
+
+}
+
+/* T15: fallback shown briefly while a lazy-loaded route/page chunk
+   downloads — kept blank/instant rather than a spinner so it doesn't
+   flash on fast connections. */
+.route-loading{
+
+    width:100%;
+
+    min-height:100vh;
+    min-height: 100dvh;
+
+}
+
+/* =====================================================
+   DESIGN TOKENS
+===================================================== */
+
+:root{
+
+    --primary:#004C48;
+    --accent:#2FA8A0;
+
+    --background:#F7F9FB;
+    --surface:#FFFFFF;
+
+    --text:#1F2937;
+    --text-light:#6B7280;
+
+    --border:#E5E7EB;
+
+    --success:#22C55E;
+    --danger:#EF4444;
+    --warning:#F59E0B;
+
+    --radius:18px;
+
+    --shadow-sm:
+    0 4px 10px rgba(15,23,42,.05);
+
+    --shadow-md:
+    0 12px 30px rgba(15,23,42,.08);
+
+    --shadow-lg:
+    0 24px 50px rgba(15,23,42,.12);
+
+    --container:1240px;
+
+}
+
+/* =====================================================
+   REUSABLE CONTAINER
+===================================================== */
+
+.container{
+
+    width:min(1240px,92%);
+
+    margin:auto;
+
+}
+
+/* =====================================================
+   COMMON SECTION
+===================================================== */
+
+section{
+
+    width:100%;
+
+}
+
+.section-heading{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+    line-height:1.15;
+
+}
+
+.section-text{
+
+    margin-top:18px;
+
+    font-size:17px;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:992px){
+
+.section-heading{
+
+    font-size:34px;
+
+}
+
+.section-text{
+
+    font-size:16px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.section-heading{
+
+    font-size:28px;
+
+}
+
+.section-text{
+
+    font-size:15px;
+
+}
+
+.container{
+
+    width:92%;
+
+}
+
+}

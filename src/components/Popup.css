@@ -1,0 +1,654 @@
+/* =========================================================
+   POPUP CARD
+   Reusable Card for Popup Preview Section
+========================================================= */
+
+/* ==========================
+   CARD
+========================== */
+
+.popup-card{
+
+    width:100%;
+
+    min-height:320px;
+
+    background:#FFFFFF;
+
+    border:1px solid #E8EDF3;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    box-sizing:border-box;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+
+    box-shadow:
+        0 2px 6px rgba(15,23,42,.04),
+        0 10px 24px rgba(15,23,42,.06);
+
+}
+
+/* ==========================
+   HOVER
+========================== */
+
+.popup-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#D9E3EC;
+
+    box-shadow:
+        0 8px 22px rgba(15,23,42,.08),
+        0 18px 40px rgba(15,23,42,.10);
+
+}
+
+/* ==========================
+   ACTIVE
+========================== */
+
+.popup-card:active{
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================
+   ALL CHILDREN
+========================== */
+
+.popup-card *{
+
+    box-sizing:border-box;
+
+}
+
+/* ==========================
+   HEADINGS
+========================== */
+
+.popup-card h3{
+
+    margin:0;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#172B4D;
+
+}
+
+.popup-card h4{
+
+    margin:0;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    line-height:1.4;
+
+    color:#172B4D;
+
+}
+
+/* ==========================
+   PARAGRAPHS
+========================== */
+
+.popup-card p{
+
+    margin:0;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    color:#6B7280;
+
+}
+
+/* ==========================
+   BUTTON RESET
+========================== */
+
+.popup-card button{
+
+    font-family:"Inter",sans-serif;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .2s ease,
+        box-shadow .25s ease;
+
+}
+
+.popup-card button:hover{
+
+    transform:translateY(-1px);
+
+}
+
+.popup-card button:active{
+
+    transform:scale(.97);
+
+}
+
+/* ==========================
+   SVG
+========================== */
+
+.popup-card svg{
+
+    flex-shrink:0;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:992px){
+
+    .popup-card{
+
+        min-height:300px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .popup-card{
+
+        min-height:auto;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .popup-card{
+
+        border-radius:14px;
+
+    }
+
+    .popup-card h3{
+
+        font-size:16px;
+
+    }
+
+    .popup-card h4{
+
+        font-size:18px;
+
+    }
+
+    .popup-card p{
+
+        font-size:13px;
+
+    }
+
+}
+
+/* ==========================
+   ACCESSIBILITY
+========================== */
+
+.popup-card button:focus-visible{
+
+    outline:none;
+
+    box-shadow:
+        0 0 0 4px rgba(47,168,160,.18);
+
+}
+/* =========================================================
+   PART 2A
+   UPLOAD POPUP
+   Upload Box • Choose File • Footer Buttons
+========================================================= */
+
+
+/* ==========================
+   UPLOAD BODY
+========================== */
+.upload-box{
+
+    flex:1;
+
+    margin:0 22px;
+
+    border:1.5px dashed #D6DCE5;
+
+    border-radius:14px;
+
+    background:#FAFBFC;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    gap:10px;
+
+    padding:22px;
+
+}
+.upload-box:hover{
+
+    border-color:#2FA8A0;
+
+    background:#F5FCFB;
+
+}
+
+
+
+/* ==========================
+   UPLOAD ICON
+========================== */
+
+
+.upload-box svg{
+
+    color:#004C48;
+
+    margin-bottom:6px;
+
+}
+
+
+
+/* ==========================
+   UPLOAD TEXT
+========================== */
+
+
+.upload-text{
+
+    font-family:"Inter",sans-serif;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    color:#374151;
+
+    margin:0;
+
+}
+
+
+
+.upload-or{
+
+    font-family:"Inter",sans-serif;
+
+    font-size:12px;
+
+    color:#9CA3AF;
+
+}
+
+
+
+/* ==========================
+   CHOOSE FILE BUTTON
+========================== */
+
+
+.choose-file-btn{
+
+    height:32px;
+
+    padding:0 18px;
+
+    border-radius:8px;
+
+    background:#EEF2F6;
+
+    color:#004C48;
+
+    border:1px solid #D6DCE5 !important;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.choose-file-btn:hover{
+
+    background:#E5EBF2;
+
+}
+
+
+
+
+
+/* =========================================================
+   POPUP FOOTER BUTTONS
+========================================================= */
+
+.popup-actions{
+
+    margin-top:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    padding:20px 22px 22px;
+
+}
+
+
+
+/* ==========================
+   CANCEL BUTTON
+========================== */
+
+
+.btn-cancel{
+
+    height:36px;
+
+    padding:0 22px;
+
+    border-radius:8px;
+
+    background:#FFFFFF;
+
+    border:1px solid #D6DCE5 !important;
+
+    color:#475569;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+.btn-cancel:hover{
+
+    background:#F7F9FB;
+
+}
+
+
+
+
+
+/* ==========================
+   UPLOAD BUTTON
+========================== */
+
+
+.btn-upload{
+
+    height:36px;
+
+    padding:0 24px;
+
+    border-radius:8px;
+
+    background:#2FA8A0;
+
+    color:#FFFFFF;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+.btn-upload:hover{
+
+    background:#238C86;
+
+}
+
+
+
+
+
+/* =========================================================
+   PART 2B
+   DELETE POPUP
+========================================================= */
+
+
+/* ==========================
+   DELETE HEADER ICON
+========================== */
+
+
+.danger-icon{
+
+    color:#EF4444;
+
+}
+
+
+
+/* ==========================
+   DELETE CONTENT
+========================== */
+
+.popup-content{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:0 22px;
+
+}
+
+
+
+.popup-content h4{
+
+    font-family:"Inter",sans-serif;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+    color:#1F2937;
+
+    margin:0 0 10px;
+
+}
+
+
+
+.popup-content p{
+
+    font-size:13px;
+
+    color:#6B7280;
+
+    margin:0;
+
+}
+
+
+
+
+
+/* ==========================
+   DELETE BUTTON
+========================== */
+
+
+.btn-delete{
+
+    height:36px;
+
+    padding:0 24px;
+
+    border-radius:8px;
+
+    background:#EF4444;
+
+    color:#FFFFFF;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+.btn-delete:hover{
+
+    background:#DC2626;
+
+}
+
+
+
+.btn-done{
+
+    height:36px;
+
+    padding:0 24px;
+
+    border-radius:8px;
+
+    background:#2FA8A0;
+
+    color:#FFFFFF;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.btn-done:hover{
+
+    background:#238C86;
+
+}
+
+
+
+
+/* =========================================================
+   FINAL SPACING ADJUSTMENTS
+========================================================= */
+
+
+
+
+
+/* Better header alignment */
+
+.popup-header{
+
+    padding-bottom:14px;
+
+}
+
+
+
+/* Footer consistency */
+
+.popup-actions button{
+
+    min-width:80px;
+
+}
+
+
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+
+@media(max-width:768px){
+
+
+    .upload-box{
+
+        margin:0 16px;
+
+    }
+
+
+    .popup-actions{
+
+        padding:18px 16px;
+
+    }
+
+.popup-actions.center{
+
+    justify-content:center;
+
+}
+}
+

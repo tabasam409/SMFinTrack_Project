@@ -1,0 +1,1381 @@
+/* =====================================================
+   USER MANAGEMENT PAGE
+   Built on the app's existing tokens: --primary #004C48,
+   --accent #2FA8A0, --success #22C55E, --danger #EF4444,
+   --warning #F59E0B — same palette as AdminSidebar / Sidebar.
+======================================================*/
+
+.umx-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(47, 168, 160, 0.1);
+  border: 1px solid rgba(47, 168, 160, 0.25);
+  color: var(--accent);
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+/* ---------- KPI summary cards ---------- */
+
+.umx-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.umx-kpi {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.86));
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 12px 32px -18px rgba(16, 24, 40, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.umx-kpi:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px rgba(16, 24, 40, 0.05), 0 18px 40px -16px rgba(16, 24, 40, 0.26);
+}
+
+.umx-kpi-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  background: rgba(47, 168, 160, 0.12);
+  color: var(--accent);
+}
+
+.umx-kpi-danger .umx-kpi-icon {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.umx-kpi-warning .umx-kpi-icon {
+  background: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+}
+
+.umx-kpi-live .umx-ping {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.umx-kpi-live .umx-ping::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--success);
+  animation: umx-ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.umx-kpi-text {
+  min-width: 0;
+}
+
+.umx-kpi-label {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+}
+
+.umx-kpi-value {
+  margin: 2px 0 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--primary);
+}
+
+.umx-kpi-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin: 4px 0 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: #178a45;
+}
+
+.umx-kpi-meta {
+  margin: 4px 0 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+/* ---------- Shell: table column + split-view panel ---------- */
+
+.umx-shell {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.umx-table-col {
+  flex: 1;
+  min-width: 0;
+  transition: flex-basis 0.3s ease;
+}
+
+.umx-toolbar-panel {
+  margin-bottom: 16px;
+  max-width: 100%;
+}
+
+.umx-toolbar-panel .admin-panel-header > div {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.umx-table-panel {
+  padding: 0;
+  overflow: hidden;
+}
+
+.umx-table-panel .admin-table-scroll {
+  overflow-x: auto;
+}
+
+/* ---------- Controls row ---------- */
+
+.umx-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  max-width: 100%;
+}
+
+.umx-search {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+  max-width: 100%;
+}
+
+.umx-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  pointer-events: none;
+}
+
+.umx-search-input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px 0 36px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--background);
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  color: var(--text);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.umx-search-input:focus {
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+.umx-tabs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--background);
+  border-radius: 12px;
+  padding: 4px;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.umx-tab {
+  border: none;
+  background: transparent;
+  border-radius: 9px;
+  padding: 7px 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.umx-tab span {
+  opacity: 0.65;
+  margin-left: 2px;
+}
+
+.umx-tab.active {
+  background: var(--surface);
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.umx-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-light);
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.umx-filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--primary);
+}
+
+.umx-filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 20px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* ---------- Chips ---------- */
+
+.umx-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.umx-active-chips {
+  margin-top: 12px;
+  align-items: center;
+}
+
+.umx-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(27, 58, 92, 0.06);
+  color: var(--primary);
+  font-family: "Inter", sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.umx-filter-chip:hover {
+  background: rgba(27, 58, 92, 0.12);
+}
+
+.umx-clear-all {
+  border: none;
+  background: none;
+  color: var(--text-light);
+  font-family: "Inter", sans-serif;
+  font-size: 11.5px;
+  text-decoration: underline dotted;
+  cursor: pointer;
+}
+
+.umx-chip-option {
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-light);
+  padding: 6px 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.umx-chip-option.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* ---------- Highlight ---------- */
+
+.umx-highlight {
+  background: rgba(47, 168, 160, 0.2);
+  color: var(--primary);
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
+/* ---------- Table rows ---------- */
+
+.umx-table thead th {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--text-light);
+}
+
+.umx-table tbody td {
+  padding: 14px 12px;
+}
+
+.umx-row {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.umx-row.selected {
+  background: var(--background);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.umx-user-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.umx-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.18s ease;
+}
+
+.umx-row:hover .umx-avatar {
+  transform: scale(1.08);
+}
+
+.umx-avatar-lg {
+  width: 44px;
+  height: 44px;
+  font-size: 15px;
+}
+
+.umx-user-text {
+  min-width: 0;
+}
+
+.umx-user-name {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.umx-user-email {
+  margin: 2px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: var(--text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.umx-active-primary {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.umx-meta-text {
+  margin: 2px 0 0;
+  font-size: 11.5px;
+  color: var(--text-light);
+}
+
+/* ---------- Status badge ---------- */
+
+.umx-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 20px;
+  font-family: "Inter", sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.umx-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ---------- Row actions ---------- */
+
+.umx-row-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.umx-hover-only {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.umx-row:hover .umx-hover-only {
+  opacity: 1;
+}
+
+/* T15 fix: touch devices (Chrome Mobile, Safari Mobile, tablets) have no
+   hover state, so hover-only row actions were permanently invisible and
+   unreachable — the reset-password button never appeared. Force visible
+   whenever the device can't hover. */
+@media (hover: none) {
+  .umx-hover-only {
+    opacity: 1;
+  }
+}
+
+.umx-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.umx-icon-btn:hover {
+  background: var(--background);
+  color: var(--primary);
+}
+
+/* ---------- Dropdown menu ---------- */
+
+.umx-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.umx-menu-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 180;
+  width: 200px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  padding: 6px;
+  animation: umx-pop 0.14s ease-out;
+}
+
+.umx-filter-panel {
+  width: 220px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.umx-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.umx-checkbox-row:hover {
+  background: var(--background);
+}
+
+.umx-checkbox-row input {
+  accent-color: var(--accent);
+}
+
+.umx-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--primary);
+  text-align: left;
+  cursor: pointer;
+}
+
+.umx-menu-item:hover {
+  background: var(--background);
+}
+
+.umx-menu-item-danger {
+  color: var(--danger);
+}
+
+.umx-menu-item-danger:hover {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.umx-menu-item-success {
+  color: #178a45;
+}
+
+.umx-menu-item-success:hover {
+  background: rgba(34, 197, 94, 0.08);
+}
+
+/* ---------- Skeleton ---------- */
+
+.umx-skeleton-row td {
+  padding: 14px 12px;
+}
+
+/* ---------- Empty state ---------- */
+
+.umx-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 46px 0;
+}
+
+.umx-empty-art {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: rgba(47, 168, 160, 0.1);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 26px -14px rgba(47, 168, 160, 0.5);
+  animation: umx-float 2.6s ease-in-out infinite;
+}
+
+.umx-empty-title {
+  margin: 10px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.umx-empty-sub {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  color: var(--text-light);
+}
+
+/* ---------- User details drawer ---------- */
+
+.umx-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 140;
+  background: rgba(7, 29, 58, 0.35);
+  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  animation: umx-fade 0.2s ease-out;
+  pointer-events: none;
+}
+
+.umx-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 150;
+  width: 560px;
+  max-width: 96vw;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--surface);
+  box-shadow: -20px 0 60px rgba(7, 29, 58, 0.18);
+  display: flex;
+  flex-direction: column;
+  animation: umx-drawer-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.umx-panel-cover {
+  position: relative;
+  padding: 26px 24px 20px;
+  background: #004c48;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.umx-cover-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.umx-cover-close:hover {
+  background: rgba(255, 255, 255, 0.26);
+  transform: rotate(90deg);
+}
+
+.umx-cover-id {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.umx-avatar-ring {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.85);
+}
+
+.umx-cover-text {
+  min-width: 0;
+}
+
+.umx-cover-text h2 {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.2px;
+}
+
+.umx-cover-text p {
+  margin: 3px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.78);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.umx-cover-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.umx-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 4px 11px;
+  font-family: "Inter", sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.umx-pill-light {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);
+}
+
+.umx-panel-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 14px 20px;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.umx-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 9px 10px;
+}
+
+.umx-stat-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: rgba(47, 168, 160, 0.12);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.umx-stat-card > div {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.umx-stat-label {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25px;
+  color: var(--text-light);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.umx-stat-value {
+  margin: 2px 0 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.umx-panel-body {
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex: 1;
+}
+
+.umx-section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.umx-section-title-row h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-light);
+}
+
+.umx-section-title-row h3 svg {
+  color: var(--accent);
+}
+
+.umx-card {
+  border: 1px solid rgba(203, 213, 225, 0.55);
+  border-radius: 14px;
+  padding: 14px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 10px 30px -20px rgba(16, 24, 40, 0.16);
+}
+
+.umx-card-tight {
+  padding: 4px 14px;
+}
+
+.umx-spark {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.umx-card-graph {
+  padding: 14px 16px 10px;
+}
+
+.umx-spark-empty {
+  margin: 0;
+  padding: 10px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  color: var(--text-light);
+}
+
+.umx-budget-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.umx-budget-labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.umx-progress-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 20px;
+  background: var(--background);
+  overflow: hidden;
+}
+
+.umx-progress-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+/* ---------- Transactions ---------- */
+
+.umx-tx-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.umx-tx-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+}
+
+.umx-tx-row + .umx-tx-row {
+  border-top: 1px solid var(--border);
+}
+
+.umx-tx-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.umx-tx-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.umx-tx-merchant {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.umx-tx-amount {
+  font-family: "Manrope", sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.umx-tx-amount.deposit {
+  color: #178a45;
+}
+
+.umx-tx-more {
+  margin: 6px 0 0;
+  padding: 9px 0 6px;
+  border-top: 1px solid var(--border);
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: center;
+}
+
+.umx-audit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.umx-audit-action {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.umx-audit-reason {
+  margin: 3px 0 6px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.umx-panel-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.umx-panel-footer .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ---------- Suspend modal ---------- */
+
+.umx-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 29, 58, 0.45);
+  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  animation: umx-fade 0.15s ease-out;
+}
+
+.umx-modal {
+  width: 420px;
+  max-width: 92vw;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 24px;
+  animation: umx-pop 0.18s ease-out;
+}
+
+.umx-modal-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.umx-modal-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.umx-modal-head h3 {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.umx-modal-head p {
+  margin: 5px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+.umx-modal-body {
+  margin-top: 16px;
+}
+
+.umx-modal-label {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.umx-modal-body .umx-chip-row {
+  margin-top: 8px;
+}
+
+.umx-textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.umx-textarea:focus {
+  border-color: var(--accent);
+}
+
+.umx-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* ---------- Toast ---------- */
+
+.umx-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  background: var(--primary);
+  color: #fff;
+  padding: 11px 18px;
+  border-radius: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  animation: umx-toast-in 0.2s ease-out;
+}
+
+.umx-toast-error {
+  background: var(--danger);
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes umx-drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes umx-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes umx-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes umx-toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes umx-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  80%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes umx-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 992px) {
+  .umx-shell {
+    flex-direction: column;
+  }
+
+  .umx-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .umx-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .umx-panel-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .umx-search {
+    min-width: 100%;
+  }
+}
+
+/* T15 — touch tap targets: below ~44px is hard to hit reliably on phones.
+   Grow the hit area on touch devices without changing desktop density. */
+@media (hover: none) {
+  .umx-icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .umx-cover-close {
+    width: 40px;
+    height: 40px;
+  }
+
+  .umx-tab {
+    padding: 10px 12px;
+  }
+
+  .umx-checkbox-row {
+    padding: 11px 8px;
+  }
+
+  .umx-menu-item {
+    padding: 12px 10px;
+  }
+
+  /* iOS Safari zooms the whole page in when focusing any text input with
+     font-size under 16px — search box and the suspend-reason textarea
+     were 13–13.5px, so tapping either triggered an unwanted zoom on
+     iPhone. 16px on touch devices only keeps the desktop type scale. */
+  .umx-search-input,
+  .umx-textarea {
+    font-size: 16px;
+  }
+}
+
+/* T15 — 375px width pass */
+@media (max-width: 480px) {
+  .umx-kpis {
+    grid-template-columns: 1fr;
+  }
+
+  .umx-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .umx-filter-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .umx-panel-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 12px 14px;
+  }
+
+  .umx-stat-label,
+  .umx-stat-value {
+    white-space: normal;
+  }
+
+  .umx-modal {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .umx-modal-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .umx-modal-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .umx-toast {
+    left: 16px;
+    right: 16px;
+    transform: none;
+    text-align: center;
+  }
+}
+
+/* T15 — the accounts grid was overflowing past the right edge on phones:
+   the table has 5 columns (User, Status, Signup date, Last active,
+   actions) and never fit under ~560px, so it forced the whole panel wider
+   than the viewport instead of just scrolling inside its own box. Drop the
+   two secondary columns and let User + Status + actions fill the real
+   screen width so nothing spills off-screen. */
+@media (max-width: 640px) {
+  .umx-table-panel .admin-table-scroll {
+    overflow-x: hidden;
+  }
+
+  .admin-table.umx-table {
+    min-width: 0;
+    width: 100%;
+    table-layout: auto;
+  }
+
+  .umx-table th:nth-child(3),
+  .umx-table td:nth-child(3),
+  .umx-table th:nth-child(4),
+  .umx-table td:nth-child(4) {
+    display: none;
+  }
+
+  /* Status badge text ("Pending verification") is the longest label in the
+     table and was running straight into the "..." menu button. Cap the
+     badge's own width and let it wrap to two lines instead of stretching
+     the column to fit one line — this keeps the status column width
+     predictable regardless of label length, so it can never overlap the
+     action button. User column (already ellipsis-truncated) absorbs
+     whatever space is left. */
+  .umx-table th:first-child,
+  .umx-table td:first-child {
+    width: auto;
+  }
+
+  .umx-badge {
+    max-width: 104px;
+    white-space: normal;
+    line-height: 1.25;
+    padding: 4px 9px;
+    text-align: left;
+  }
+
+  .umx-table .admin-table-action-col {
+    width: 28px;
+    padding-left: 2px;
+    padding-right: 6px;
+  }
+
+  .umx-table tbody td {
+    padding: 12px 6px;
+  }
+
+  .umx-user-cell {
+    gap: 10px;
+  }
+
+  .umx-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .umx-user-name,
+  .umx-user-email {
+    max-width: 100%;
+  }
+
+  /* Reset-password is still reachable from the "..." menu, so drop the
+     standalone icon button on phones to leave room for the row. */
+  .umx-table .umx-hover-only {
+    display: none;
+  }
+}

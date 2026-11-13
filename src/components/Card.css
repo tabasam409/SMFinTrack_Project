@@ -1,0 +1,540 @@
+/* ==========================================
+   BASE CARD
+========================================== */
+
+.card{
+
+    width:100%;
+
+    min-height:220px;
+
+    background:#FFFFFF;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    border:1px solid #E8EDF3;
+
+    box-shadow:0 4px 14px rgba(0,0,0,0.05);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    transition:all .25s ease;
+
+    overflow:hidden;
+
+}
+
+
+/* ==========================================
+   HOVER EFFECT
+========================================== */
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+}
+
+
+.card-header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+/* ==========================================
+   ICON
+========================================== */
+
+.card-icon{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.card-title{
+
+    font-family:"Inter",sans-serif;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#172B4D;
+
+    margin:0;
+
+}
+
+
+.card-subtitle{
+
+    font-size:12px;
+
+    color:#6B7280;
+
+    margin-top:3px;
+
+}
+
+
+/* ==========================================
+   BADGE
+========================================== */
+
+.card-badge{
+
+    font-size:11px;
+
+    font-weight:600;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    background:#EEF2F6;
+
+    color:#172B4D;
+
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+.card-body{
+
+    margin-top:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+
+/* ==========================================
+   AMOUNT
+========================================== */
+
+.card-amount{
+
+    font-size:25px;
+
+    font-weight:800;
+
+    letter-spacing:-.4px;
+
+    color:#172B4D;
+
+    margin:0;
+
+}
+
+
+.card-secondary{
+
+    font-size:12px;
+
+    color:#6B7280;
+
+    margin:0;
+
+}
+
+
+/* ==========================================
+   PROGRESS BAR
+========================================== */
+
+.card-progress-wrapper{
+
+    margin-top:12px;
+
+}
+
+
+.card-progress{
+
+    width:100%;
+
+    height:7px;
+
+    background:#EEF2F6;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+.card-progress-fill{
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:#2FA8A0;
+
+    transition:width .8s ease;
+
+}
+
+
+.card-progress-label{
+
+    display:block;
+
+    margin-top:6px;
+
+    font-size:12px;
+
+    color:#6B7280;
+
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.card-footer{
+
+    margin-top:16px;
+
+    padding-top:12px;
+
+    border-top:1px solid #EEF2F6;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:8px;
+
+}
+
+
+.card-footer-text{
+
+    font-size:12px;
+
+    color:#6B7280;
+
+}
+
+
+.card-status{
+
+    padding:5px 10px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    border-radius:20px;
+
+    background:#ECFDF5;
+
+    color:#16A34A;
+
+}
+
+
+.card-trend{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    font-size:12px;
+
+    color:#16A34A;
+
+}
+
+
+/* ==========================================
+   CARD VARIANTS
+========================================== */
+
+
+/* Budget */
+
+.card-budget .card-icon{
+
+    background:#E8F7F5;
+
+    color:#2FA8A0;
+
+}
+
+
+.card-budget .card-progress-fill{
+
+    background:#2FA8A0;
+
+}
+
+
+/* Health */
+
+.card-health .card-icon{
+
+    background:#FEECEC;
+
+    color:#EF4444;
+
+}
+
+
+.card-health .card-status{
+
+    background:#ECFDF5;
+
+    color:#22C55E;
+
+}
+
+
+/* Forecast */
+
+.card-forecast .card-icon{
+
+    background:#F3E8FF;
+
+    color:#8B5CF6;
+
+}
+
+
+.card-forecast .card-progress-fill{
+
+    background:#8B5CF6;
+
+}
+
+
+/* Subscription */
+
+.card-subscription .card-icon{
+
+    background:#FFF7E6;
+
+    color:#F59E0B;
+
+}
+
+
+.card-subscription .card-status{
+
+    background:#FEF3C7;
+
+    color:#D97706;
+
+}
+
+
+
+/* ==========================================
+   FORECAST EXTRA
+========================================== */
+
+.forecast-extra{
+
+    margin-top:10px;
+
+}
+
+
+.forecast-bar{
+
+    width:100%;
+
+    height:7px;
+
+    background:#EEF2F6;
+
+    border-radius:20px;
+
+}
+
+
+.forecast-fill{
+
+    width:75%;
+
+    height:100%;
+
+    background:#8B5CF6;
+
+    border-radius:20px;
+
+}
+
+
+
+/* ==========================================
+   SUBSCRIPTION LOGO
+========================================== */
+
+.subscription-logo{
+
+    width:45px;
+
+    height:45px;
+
+    margin-top:10px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#FFF7E6;
+
+    color:#F59E0B;
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+
+@media(max-width:1200px){
+
+.card{
+
+    min-height:210px;
+
+}
+
+
+}
+
+
+@media(max-width:992px){
+
+
+.card-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+}
+
+
+
+@media(max-width:650px){
+
+
+.card-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.card{
+
+    padding:16px;
+
+}
+
+
+.card-amount{
+
+    font-size:22px;
+
+}
+
+
+}
+
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+
+.card:focus-within{
+
+    outline:3px solid rgba(47,168,160,.2);
+
+    outline-offset:3px;
+
+}
+
+
+/* ==========================================
+   SMOOTH RENDERING
+========================================== */
+
+.card,
+.card *{
+
+    box-sizing:border-box;
+
+    -webkit-font-smoothing:antialiased;
+
+}

@@ -1,0 +1,319 @@
+/* ==========================================================
+   ICON SECTION
+   SMFinTrack Design System
+========================================================== */
+
+/* ==========================================================
+   SECTION
+========================================================== */
+
+.icon-section{
+
+    width:100%;
+
+    margin-top:64px;
+
+    margin-bottom:72px;
+
+}
+
+.icon-section *{
+
+    box-sizing:border-box;
+
+}
+
+/* ==========================================================
+   SECTION TITLE
+========================================================== */
+
+.icon-section-title{
+
+    margin:0 0 32px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    color:#172B4D;
+
+}
+
+/* ==========================================================
+   ICON CARD
+========================================================== */
+
+.icon-card{
+
+    width:100%;
+
+    background:#FFFFFF;
+
+    border:1px solid #E8EDF3;
+
+    border-radius:18px;
+
+    padding:32px;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+    box-shadow:
+        0 2px 8px rgba(15,23,42,.04),
+        0 12px 28px rgba(15,23,42,.06);
+
+}
+
+/* ==========================================================
+   CARD HOVER
+========================================================== */
+
+.icon-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#D6DCE5;
+
+    box-shadow:
+        0 10px 24px rgba(15,23,42,.08),
+        0 20px 42px rgba(15,23,42,.10);
+
+}
+
+/* ==========================================================
+   ICON GRID
+========================================================== */
+
+.icon-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+    justify-items:center;
+
+    align-items:center;
+
+    margin-bottom:34px;
+
+}
+
+/* ==========================================================
+   ICON ITEM
+========================================================== */
+
+.icon-item{
+
+    width:58px;
+
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        transform .25s ease,
+        color .25s ease;
+
+}
+
+/* ==========================================================
+   ICON
+========================================================== */
+
+.icon-item svg{
+
+    width:24px;
+
+    height:24px;
+
+    color:#172B4D;
+
+    stroke-width:2;
+
+}
+
+/* ==========================================================
+   ICON HOVER
+========================================================== */
+
+.icon-item:hover{
+
+    background:#F7F9FB;
+
+    transform:translateY(-3px);
+
+}
+
+.icon-item:hover svg{
+
+    color:#2FA8A0;
+
+}
+
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
+
+.icon-description{
+
+    padding-top:22px;
+
+    border-top:1px solid #EEF2F6;
+
+}
+
+.icon-description p{
+
+    margin:0;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:14px;
+
+    font-weight:400;
+
+    line-height:1.7;
+
+    color:#6B7280;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:992px){
+
+    .icon-card{
+
+        padding:28px;
+
+    }
+
+    .icon-grid{
+
+        gap:24px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .icon-section{
+
+        margin-top:48px;
+
+        margin-bottom:56px;
+
+    }
+
+    .icon-section-title{
+
+        font-size:26px;
+
+        margin-bottom:24px;
+
+    }
+
+    .icon-card{
+
+        padding:24px;
+
+    }
+
+    .icon-grid{
+
+        grid-template-columns:repeat(4,1fr);
+
+        gap:20px;
+
+    }
+
+    .icon-item{
+
+        width:52px;
+
+        height:52px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .icon-section-title{
+
+        font-size:22px;
+
+    }
+
+    .icon-card{
+
+        padding:18px;
+
+        border-radius:14px;
+
+    }
+
+    .icon-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:18px;
+
+    }
+
+    .icon-item{
+
+        width:48px;
+
+        height:48px;
+
+    }
+
+    .icon-item svg{
+
+        width:22px;
+
+        height:22px;
+
+    }
+
+    .icon-description p{
+
+        font-size:13px;
+
+    }
+
+}
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+.icon-item:focus-visible{
+
+    outline:none;
+
+    box-shadow:
+        0 0 0 4px rgba(47,168,160,.18);
+
+}

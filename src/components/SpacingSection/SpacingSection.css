@@ -1,0 +1,323 @@
+/* ==========================================================
+   SPACING SECTION
+   SMFinTrack Design System
+========================================================== */
+
+/* ==========================================================
+   SECTION
+========================================================== */
+
+.spacing-section{
+
+    width:100%;
+
+    margin-top:64px;
+
+    margin-bottom:72px;
+
+}
+
+.spacing-section *{
+
+    box-sizing:border-box;
+
+}
+
+/* ==========================================================
+   SECTION TITLE
+========================================================== */
+
+.spacing-section-title{
+
+    margin:0 0 32px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    color:#172B4D;
+
+}
+
+/* ==========================================================
+   SPACING CARD
+========================================================== */
+
+.spacing-card{
+
+    width:100%;
+
+    background:#FFFFFF;
+
+    border:1px solid #E8EDF3;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    column-gap:80px;
+
+    row-gap:0;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+    box-shadow:
+        0 2px 8px rgba(15,23,42,.04),
+        0 12px 28px rgba(15,23,42,.06);
+
+}
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.spacing-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#D6DCE5;
+
+    box-shadow:
+        0 10px 24px rgba(15,23,42,.08),
+        0 20px 42px rgba(15,23,42,.10);
+
+}
+
+/* ==========================================================
+   COLUMN
+========================================================== */
+
+.spacing-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+}
+
+/* ==========================================================
+   ROW
+========================================================== */
+
+.spacing-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:24px;
+
+}
+
+/* ==========================================================
+   LABEL
+========================================================== */
+
+.spacing-label{
+
+    width:55px;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#172B4D;
+
+    flex-shrink:0;
+
+}
+
+/* ==========================================================
+   PREVIEW AREA
+========================================================== */
+
+.spacing-preview{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ==========================================================
+   BASE BOX
+========================================================== */
+
+.spacing-box{
+
+    background:#2FA8A0;
+
+    border-radius:6px;
+
+    box-shadow:
+        0 4px 10px rgba(47,168,160,.18);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+/* ==========================================================
+   BOX HOVER
+========================================================== */
+
+.spacing-row:hover .spacing-box{
+
+    transform:scale(1.08);
+
+    box-shadow:
+        0 8px 18px rgba(47,168,160,.25);
+
+}
+
+/* ==========================================================
+   SIZE VARIANTS
+========================================================== */
+
+.spacing-4{
+
+    width:4px;
+
+    height:4px;
+
+}
+
+.spacing-8{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+.spacing-16{
+
+    width:16px;
+
+    height:16px;
+
+}
+
+.spacing-24{
+
+    width:24px;
+
+    height:24px;
+
+}
+
+.spacing-32{
+
+    width:32px;
+
+    height:32px;
+
+}
+
+.spacing-48{
+
+    width:48px;
+
+    height:48px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:992px){
+
+    .spacing-card{
+
+        column-gap:40px;
+
+        padding:24px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .spacing-section{
+
+        margin-top:48px;
+
+        margin-bottom:56px;
+
+    }
+
+    .spacing-section-title{
+
+        font-size:26px;
+
+        margin-bottom:24px;
+
+    }
+
+    .spacing-card{
+
+        grid-template-columns:1fr;
+
+        row-gap:32px;
+
+        padding:22px;
+
+    }
+
+    .spacing-column{
+
+        gap:22px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .spacing-section-title{
+
+        font-size:22px;
+
+    }
+
+    .spacing-card{
+
+        padding:18px;
+
+        border-radius:14px;
+
+    }
+
+    .spacing-label{
+
+        font-size:15px;
+
+        width:48px;
+
+    }
+
+}

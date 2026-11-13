@@ -1,0 +1,935 @@
+/* =====================================================
+   CATEGORY MANAGEMENT — split shell (tree table + panel)
+   Reuses admin-panel / admin-table / admin-toolbar tokens
+   from AdminDashboard.css; everything page-specific is
+   prefixed cmx- (Category Management).
+======================================================*/
+
+.cmx-shell {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.cmx-table-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.cmx-toolbar-panel {
+  margin-bottom: 16px;
+}
+
+.cmx-table-panel {
+  padding: 0;
+  overflow: hidden;
+}
+
+.cmx-table-panel .admin-table-scroll {
+  padding: 8px 8px 4px;
+}
+
+/* =====================================================
+   TOOLBAR CONTROLS
+======================================================*/
+
+.cmx-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 230px;
+}
+
+.cmx-search-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-light, #6b7280);
+  pointer-events: none;
+}
+
+.cmx-search-input {
+  width: 100%;
+  padding: 9px 32px 9px 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: var(--background, #f7f9fb);
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--text, #1f2937);
+}
+
+.cmx-search-input:focus {
+  outline: none;
+  border-color: var(--accent, #2fa8a0);
+  background: #fff;
+}
+
+.cmx-search-clear {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border, #e5e7eb);
+  color: var(--text-light, #6b7280);
+  cursor: pointer;
+}
+
+.cmx-expand-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: #fff;
+  color: var(--text-light, #6b7280);
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cmx-expand-toggle:hover {
+  border-color: var(--accent, #2fa8a0);
+  color: var(--accent, #2fa8a0);
+}
+
+.cmx-highlight {
+  background: rgba(245, 158, 11, 0.28);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
+/* =====================================================
+   TREE TABLE
+======================================================*/
+
+.cmx-table {
+  min-width: 640px;
+}
+
+.cmx-col-name {
+  width: 46%;
+}
+
+.cmx-row-top td {
+  background: #fbfcfe;
+}
+
+.cmx-row-child td {
+  border-bottom: 1px solid #f1f4f8;
+}
+
+.cmx-row-child:hover td {
+  background: var(--background, #f7f9fb);
+}
+
+.cmx-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cmx-name-cell-child {
+  padding-left: 40px;
+}
+
+.cmx-drag-hint {
+  color: #cbd5e1;
+  flex-shrink: 0;
+}
+
+.cmx-expander {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-light, #6b7280);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.cmx-expander:hover {
+  background: #eef2f6;
+  color: var(--primary, #004c48);
+}
+
+.cmx-expander-empty {
+  cursor: default;
+}
+
+.cmx-expander-empty:hover {
+  background: transparent;
+}
+
+.cmx-expander-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #d5dbe3;
+}
+
+.cmx-icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.12);
+}
+
+.cmx-icon-badge-sm {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+}
+
+.cmx-name-text {
+  font-weight: 600;
+  color: var(--primary, #004c48);
+}
+
+.cmx-row-child .cmx-name-text {
+  font-weight: 500;
+  color: var(--text, #1f2937);
+}
+
+.cmx-child-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 20px;
+  background: #eef2f6;
+  color: var(--text-light, #6b7280);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.cmx-color-chip {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+.cmx-color-hex {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: var(--text-light, #6b7280);
+  vertical-align: middle;
+}
+
+.cmx-sort-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cmx-sort-arrows {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.cmx-sort-arrows button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 13px;
+  border: none;
+  background: #eef2f6;
+  color: var(--text-light, #6b7280);
+  cursor: pointer;
+}
+
+.cmx-sort-arrows button:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.cmx-sort-arrows button:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.cmx-sort-arrows button:hover:not(:disabled) {
+  background: var(--accent, #2fa8a0);
+  color: #fff;
+}
+
+.cmx-sort-arrows button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.cmx-icon-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid #cdeae6;
+  background: #f0fbfa;
+  color: var(--accent, #2fa8a0);
+  cursor: pointer;
+}
+
+.cmx-icon-action:hover:not(:disabled) {
+  border-color: var(--accent, #2fa8a0);
+  background: #e3f7f4;
+  color: var(--primary, #004c48);
+}
+
+.cmx-icon-action-danger {
+  border-color: #f3caca;
+  background: #fef2f2;
+  color: var(--danger, #ef4444);
+}
+
+.cmx-icon-action-danger:hover:not(:disabled) {
+  border-color: var(--danger, #ef4444);
+  background: #fce4e4;
+  color: #dc2626;
+}
+
+.cmx-icon-action:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Row actions: 3-dot menu ---------- */
+
+.cmx-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.cmx-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  color: var(--text-light, #6b7280);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cmx-menu-btn:hover:not(:disabled) {
+  background: var(--background, #f7f9fb);
+  color: var(--primary, #004c48);
+}
+
+.cmx-menu-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cmx-menu-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 40;
+  width: 200px;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md, 0 12px 30px rgba(15, 23, 42, 0.12));
+  padding: 6px;
+  animation: cmx-menu-pop 0.14s ease-out;
+}
+
+@keyframes cmx-menu-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cmx-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--primary, #004c48);
+  text-align: left;
+  cursor: pointer;
+}
+
+.cmx-menu-item:hover {
+  background: var(--background, #f7f9fb);
+}
+
+.cmx-menu-item-danger {
+  color: var(--danger, #ef4444);
+}
+
+.cmx-menu-item-danger:hover {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.cmx-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.cmx-empty-art {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #eef2f6;
+  color: var(--text-light, #6b7280);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cmx-empty-title {
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  color: var(--text-light, #6b7280);
+}
+
+/* =====================================================
+   SIDE PANEL — add / edit
+======================================================*/
+
+.cmx-panel {
+  width: 360px;
+  flex-shrink: 0;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius, 18px);
+  box-shadow: var(--shadow-md, 0 12px 30px rgba(15, 23, 42, 0.08));
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cmx-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+
+.cmx-panel-eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--accent, #2fa8a0);
+  margin: 0 0 3px;
+}
+
+.cmx-panel-head h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary, #004c48);
+  margin: 0;
+}
+
+.cmx-panel-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-light, #6b7280);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.cmx-panel-close:hover {
+  background: #eef2f6;
+  color: var(--primary, #004c48);
+}
+
+.cmx-panel-body {
+  padding: 18px 20px 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cmx-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.cmx-field label {
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--primary, #004c48);
+}
+
+.cmx-text-input,
+.cmx-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: var(--background, #f7f9fb);
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  color: var(--text, #1f2937);
+}
+
+.cmx-text-input:focus,
+.cmx-select:focus {
+  outline: none;
+  border-color: var(--accent, #2fa8a0);
+  background: #fff;
+}
+
+.cmx-input-error {
+  border-color: var(--danger, #ef4444) !important;
+  background: #fef2f2 !important;
+}
+
+.cmx-field-error {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: var(--danger, #ef4444);
+  margin: 0;
+}
+
+.cmx-select {
+  -webkit-appearance:none; -moz-appearance:none; appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #6b7280 50%),
+    linear-gradient(135deg, #6b7280 50%, transparent 50%);
+  background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+.cmx-swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+}
+
+.cmx-swatch {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 7px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+.cmx-swatch.active {
+  border-color: var(--primary, #004c48);
+  transform: scale(1.08);
+}
+
+.cmx-hex-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.cmx-hex-preview {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.1);
+}
+
+.cmx-hex-input {
+  flex: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cmx-icon-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: var(--background, #f7f9fb);
+  color: var(--text-light, #6b7280);
+  margin-bottom: 8px;
+}
+
+.cmx-icon-search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--text, #1f2937);
+}
+
+.cmx-icon-search input:focus {
+  outline: none;
+}
+
+.cmx-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  max-height: 168px;
+  overflow-y: auto;
+  padding: 2px;
+}
+
+.cmx-icon-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: #fff;
+  color: var(--text-light, #6b7280);
+  cursor: pointer;
+}
+
+.cmx-icon-option:hover {
+  border-color: var(--accent, #2fa8a0);
+  color: var(--accent, #2fa8a0);
+}
+
+.cmx-icon-option.active {
+  border-color: var(--primary, #004c48);
+  background: var(--primary, #004c48);
+  color: #fff;
+}
+
+.cmx-icon-empty {
+  grid-column: 1 / -1;
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  color: var(--text-light, #6b7280);
+  padding: 10px 0;
+  text-align: center;
+}
+
+.cmx-preview-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--background, #f7f9fb);
+  border: 1px dashed var(--border, #e5e7eb);
+}
+
+.cmx-preview-label {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light, #6b7280);
+}
+
+.cmx-preview-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--primary, #004c48);
+}
+
+.cmx-panel-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border, #e5e7eb);
+  margin-top: 4px;
+}
+
+.cmx-panel-delete {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  color: var(--danger, #ef4444);
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 8px 4px;
+}
+
+.cmx-panel-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+/* =====================================================
+   DELETE CONFIRM MODAL
+======================================================*/
+
+.cmx-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 60;
+}
+
+.cmx-modal {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface, #fff);
+  border-radius: var(--radius, 18px);
+  box-shadow: var(--shadow-lg, 0 24px 60px rgba(15, 23, 42, 0.22));
+  padding: 22px;
+}
+
+.cmx-modal-head {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.cmx-modal-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: var(--danger, #ef4444);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cmx-modal-head h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary, #004c48);
+  margin: 0 0 5px;
+}
+
+.cmx-modal-head p {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-light, #6b7280);
+  margin: 0;
+}
+
+.cmx-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* =====================================================
+   TOAST
+======================================================*/
+
+.cmx-toast {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary, #004c48);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: var(--shadow-md, 0 12px 30px rgba(15, 23, 42, 0.18));
+  z-index: 70;
+  animation: cmx-toast-in 0.25s ease;
+}
+
+@keyframes cmx-toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* =====================================================
+   RESPONSIVE
+======================================================*/
+
+@media (max-width: 1100px) {
+  .cmx-shell.with-panel {
+    flex-direction: column;
+  }
+
+  .cmx-panel {
+    width: 100%;
+    position: relative;
+    top: 0;
+    max-height: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .cmx-search {
+    width: 100%;
+  }
+
+  .admin-toolbar {
+    width: 100%;
+  }
+
+  .cmx-swatch-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .cmx-icon-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* T15 — touch tap targets: expander, sort arrows, and row-action buttons
+   were 13–30px, under the ~44px minimum recommended for touch. Grow them
+   on touch devices only so the desktop table stays dense. */
+@media (hover: none) {
+  .cmx-expander {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cmx-sort-arrows button {
+    width: 26px;
+    height: 20px;
+  }
+
+  .cmx-icon-action,
+  .cmx-menu-btn,
+  .cmx-panel-close {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cmx-swatch,
+  .cmx-icon-option {
+    min-height: 40px;
+  }
+
+  /* iOS Safari zoom-on-focus fix (see UserManagementPage.css for detail):
+     the category search box and the name/hex/parent form fields were
+     13–13.5px. Icon-search input (.cmx-icon-search input) was missed in
+     the original pass and still triggered the zoom. */
+  .cmx-search-input,
+  .cmx-text-input,
+  .cmx-select,
+  .cmx-icon-search input {
+    font-size: 16px;
+  }
+}
+
+/* T15 — 375px width pass */
+@media (max-width: 480px) {
+  .cmx-swatch-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .cmx-icon-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cmx-panel-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .cmx-panel-actions-right {
+    margin-left: 0;
+    flex-direction: column-reverse;
+  }
+
+  .cmx-panel-actions-right .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cmx-panel-delete {
+    align-self: center;
+  }
+
+  .cmx-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .cmx-modal-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cmx-toast {
+    left: 16px;
+    right: 16px;
+    transform: none;
+    text-align: center;
+  }
+}

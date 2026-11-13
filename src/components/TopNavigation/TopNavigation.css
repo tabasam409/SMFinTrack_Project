@@ -1,0 +1,96 @@
+/* =====================================================
+   TOP NAVIGATION
+======================================================*/
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: calc(100% + 80px);
+  margin: -32px -40px 20px;
+  padding: 14px 40px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+/* T15 fix: the bar bleeds edge-to-edge by cancelling out the page's own
+   left/right padding with a matching negative margin. That offset was
+   hardcoded to the *desktop* page padding (40px), so on mobile — where
+   .bsp-main switches to 24px padding at <=992px — the bar kept using the
+   40px offset anyway and overshot the real edge by 16px on each side.
+   That's what was pushing the bell / settings / avatar icons off the
+   right edge of the screen. Match the offset to the page's own padding
+   at each breakpoint so the bar's edge lines up with the actual viewport
+   edge instead of an assumed one. */
+@media (max-width: 992px) {
+  .top-nav {
+    width: calc(100% + 48px);
+    margin: -24px -24px 20px;
+    padding: 14px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-nav {
+    gap: 10px;
+  }
+  .top-nav-title {
+    font-size: 15px;
+  }
+}
+
+.top-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.top-nav-title {
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+}
+
+.top-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-nav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: none;
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.top-nav-icon-btn:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.top-nav-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #d3f5e4;
+  color: #04785a;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}

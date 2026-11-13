@@ -1,0 +1,228 @@
+/* ==========================================================
+   COLOR CARD
+   Reusable Color Card Component
+========================================================== */
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.color-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    width:100%;
+
+    padding:10px 0;
+
+    box-sizing:border-box;
+
+}
+
+/* ==========================================================
+   COLOR PREVIEW
+========================================================== */
+
+.color-preview{
+
+    width:34px;
+
+    height:22px;
+
+    border-radius:6px;
+
+    border:1px solid #D6DCE5;
+
+    flex-shrink:0;
+
+}
+
+/* ==========================================================
+   INFO
+========================================================== */
+
+.color-info{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+    min-width:0;
+
+}
+
+/* ==========================================================
+   TOP ROW
+========================================================== */
+
+.color-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+}
+
+/* ==========================================================
+   COLOR NAME
+========================================================== */
+
+.color-name{
+
+    margin:0;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#1F2937;
+
+    line-height:1.2;
+
+    white-space:nowrap;
+
+}
+
+/* ==========================================================
+   HEX VALUE
+========================================================== */
+
+.color-hex{
+
+    font-family:"Inter",sans-serif;
+
+    font-size:11px;
+
+    font-weight:500;
+
+    color:#9CA3AF;
+
+    letter-spacing:.2px;
+
+    white-space:nowrap;
+
+}
+
+/* ==========================================================
+   USAGE
+========================================================== */
+
+.color-usage{
+
+    margin:0;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:11px;
+
+    line-height:1.45;
+
+    color:#6B7280;
+
+}
+
+/* ==========================================================
+   USAGE LABEL
+========================================================== */
+
+.usage-label{
+
+    font-weight:600;
+
+    color:#4B5563;
+
+}
+
+/* ==========================================================
+   VARIANT COLORS
+========================================================== */
+
+.color-preview.white{
+
+    background:#FFFFFF;
+
+}
+
+.color-preview.surface{
+
+    background:#F7F9FB;
+
+}
+
+.color-preview.border{
+
+    background:#FFFFFF;
+
+    border:1px solid #D6DCE5;
+
+}
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.color-card{
+
+    transition:transform .2s ease;
+
+}
+
+.color-card:hover{
+
+    transform:translateX(2px);
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:768px){
+
+    .color-card{
+
+        gap:12px;
+
+    }
+
+    .color-preview{
+
+        width:30px;
+
+        height:20px;
+
+    }
+
+    .color-name{
+
+        font-size:12px;
+
+    }
+
+    .color-hex{
+
+        font-size:10px;
+
+    }
+
+    .color-usage{
+
+        font-size:10px;
+
+    }
+
+}

@@ -1,0 +1,450 @@
+/* ===========================================
+   INPUT COMPONENT
+=========================================== */
+
+.input-wrapper{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+/* ===========================================
+   LABEL
+=========================================== */
+
+.input-label{
+    font-family:"Inter",sans-serif;
+    font-size:13px;
+    font-weight:600;
+    color:#1F2937;
+}
+
+/* ===========================================
+   INPUT BOX
+=========================================== */
+
+.input-box{
+    position:relative;
+    width:100%;
+}
+
+/* ===========================================
+   INPUT FIELD
+=========================================== */
+
+.input-field{
+
+    width:100%;
+    height:44px;
+
+    border:1px solid #D6DCE5;
+
+    border-radius:12px;
+
+    background:#FFFFFF;
+
+    padding:0 14px;
+
+    font-size:14px;
+
+    font-family:"Inter",sans-serif;
+
+    color:#1F2937;
+
+    outline:none;
+
+    transition:
+    border-color .25s,
+    box-shadow .25s,
+    background .25s;
+
+}
+
+/* ===========================================
+   PLACEHOLDER
+=========================================== */
+
+.input-field::placeholder{
+
+    color:#94A3B8;
+
+}
+
+/* ===========================================
+   HOVER
+=========================================== */
+
+.input-field:hover{
+
+    border-color:#B7C3D1;
+
+}
+
+/* ===========================================
+   FOCUS
+=========================================== */
+
+.input-field:focus{
+
+    border-color:#2FA8A0;
+
+    box-shadow:0 0 0 4px rgba(47,168,160,.15);
+
+}
+
+/* ===========================================
+   VARIANTS
+=========================================== */
+
+.input-default .input-field{
+
+    border-color:#D6DCE5;
+
+}
+
+.input-focused .input-field{
+
+    border-color:#2FA8A0;
+
+    box-shadow:0 0 0 4px rgba(47,168,160,.15);
+
+}
+
+.input-error .input-field{
+
+    border-color:#EF4444;
+
+    box-shadow:0 0 0 4px rgba(239,68,68,.12);
+
+}
+
+.input-success .input-field{
+
+    border-color:#22C55E;
+
+    box-shadow:0 0 0 4px rgba(34,197,94,.12);
+
+}
+
+.input-disabled .input-field{
+
+    background:#F5F7FA;
+
+    border-color:#E6EAF0;
+
+    color:#94A3B8;
+
+    cursor:not-allowed;
+
+}
+
+.input-disabled .input-field::placeholder{
+
+    color:#B6BEC9;
+
+}
+
+/* ===========================================
+   LEFT ICON
+=========================================== */
+
+.input-icon-left{
+
+    position:absolute;
+
+    top:50%;
+
+    left:14px;
+
+    transform:translateY(-50%);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#94A3B8;
+
+    pointer-events:none;
+
+}
+
+/* ===========================================
+   RIGHT ICON
+=========================================== */
+
+.input-icon-right{
+
+    position:absolute;
+
+    top:50%;
+
+    right:10px;
+
+    transform:translateY(-50%);
+
+    width:34px;
+
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:none;
+
+    background:transparent;
+
+    color:#94A3B8;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.input-icon-right:hover{
+
+    background:#F3F4F6;
+
+    color:#004C48;
+
+}
+
+/* ===========================================
+   ICON PADDING
+=========================================== */
+
+.has-left-icon{
+
+    padding-left:46px;
+
+}
+
+.has-right-icon{
+
+    padding-right:46px;
+
+}
+
+/* ===========================================
+   HELPER TEXT
+=========================================== */
+
+.input-helper{
+
+    font-size:12px;
+
+    font-family:"Inter",sans-serif;
+
+    margin-top:2px;
+
+}
+
+.helper-default{
+
+    color:#6B7280;
+
+}
+
+.helper-focused{
+
+    color:#2FA8A0;
+
+}
+
+.helper-error{
+
+    color:#EF4444;
+
+}
+
+.helper-success{
+
+    color:#22C55E;
+
+}
+
+/* ===========================================
+   TEXTAREA
+=========================================== */
+
+.text-area{
+
+    width:100%;
+
+    min-height:110px;
+
+    border:1px solid #D6DCE5;
+
+    border-radius:12px;
+
+    background:#FFFFFF;
+
+    padding:14px;
+
+    resize:none;
+
+    outline:none;
+
+    font-size:14px;
+
+    font-family:"Inter",sans-serif;
+
+    transition:
+    border-color .25s,
+    box-shadow .25s;
+
+}
+
+.text-area::placeholder{
+
+    color:#94A3B8;
+
+}
+
+.text-area:hover{
+
+    border-color:#B7C3D1;
+
+}
+
+.text-area:focus{
+
+    border-color:#2FA8A0;
+
+    box-shadow:0 0 0 4px rgba(47,168,160,.15);
+
+}
+
+/* ===========================================
+   TRANSITIONS
+=========================================== */
+
+.input-wrapper{
+
+    transition:.25s;
+
+}
+
+.input-wrapper:hover .input-label{
+
+    color:#004C48;
+
+}
+
+/* ===========================================
+   ACCESSIBILITY
+=========================================== */
+
+.input-field:disabled{
+
+    pointer-events:none;
+
+}
+
+.input-icon-right:focus{
+
+    outline:none;
+
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media (max-width:992px){
+
+.input-field{
+
+height:42px;
+
+font-size:13px;
+
+}
+
+.text-area{
+
+min-height:100px;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.input-label{
+
+font-size:12px;
+
+}
+
+.input-field{
+
+height:40px;
+
+font-size:13px;
+
+}
+
+.text-area{
+
+min-height:90px;
+
+font-size:13px;
+
+}
+
+}
+
+/* ===========================================
+   FINAL POLISH
+=========================================== */
+
+.input-wrapper *{
+
+box-sizing:border-box;
+
+}
+
+.input-field,
+.text-area{
+
+-webkit-font-smoothing:antialiased;
+
+}
+
+.input-icon-right svg,
+.input-icon-left svg{
+
+width:18px;
+
+height:18px;
+
+}
+
+/* ===========================================
+   iOS SAFARI ZOOM-ON-FOCUS FIX (T15)
+   Any text input under 16px causes Safari on iPhone to zoom the whole
+   page in when it gains focus. Dashboard Home's category filter (and
+   every other <Input> in the app) was 14px, so tapping it on an iPhone
+   zoomed the page unexpectedly. 16px on touch devices only — desktop
+   keeps the smaller type scale defined above.
+=========================================== */
+
+@media (hover: none){
+
+.input-field,
+.text-area{
+
+font-size:16px;
+
+}
+
+}

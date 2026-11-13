@@ -1,0 +1,296 @@
+/* ==========================================
+   DROPDOWN SECTION
+========================================== */
+
+.dropdown-section{
+
+    width:100%;
+
+    margin-top:64px;
+
+    margin-bottom:70px;
+
+}
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.dropdown-section .section-title{
+
+    margin:0 0 34px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    color:#172B4D;
+
+}
+
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
+
+.dropdown-layout{
+
+    display:grid;
+
+    grid-template-columns:2.1fr 1fr;
+
+    gap:42px;
+
+    align-items:flex-start;
+
+}
+
+/* ==========================================
+   LEFT SIDE
+========================================== */
+
+.dropdown-left{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px 28px;
+
+    padding-right:40px;
+
+    border-right:1px solid #E8EDF3;
+
+}
+
+/* ==========================================
+   RIGHT SIDE
+========================================== */
+
+.dropdown-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+/* ==========================================
+   DROPDOWN WIDTH
+========================================== */
+
+.dropdown-left .dropdown-wrapper,
+.dropdown-right .dropdown-wrapper{
+
+    width:100%;
+
+}
+
+/* ==========================================
+   LABEL SPACING
+========================================== */
+
+.dropdown-label{
+
+    margin-bottom:6px;
+
+}
+
+/* ==========================================
+   HELPER TEXT
+========================================== */
+
+.dropdown-helper{
+
+    margin-top:6px;
+
+}
+
+/* ==========================================
+   HOVER EFFECT
+========================================== */
+
+.dropdown-left .dropdown-wrapper,
+.dropdown-right .dropdown-wrapper{
+
+    transition:.25s ease;
+
+}
+
+.dropdown-left .dropdown-wrapper:hover,
+.dropdown-right .dropdown-wrapper:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   MULTI SELECT AREA
+========================================== */
+
+.dropdown-right .dropdown-wrapper{
+
+    min-height:120px;
+
+}
+
+/* ==========================================
+   DROPDOWN MENU
+========================================== */
+
+.dropdown-menu{
+
+    margin-top:8px;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+.dropdown-layout{
+
+    grid-template-columns:1fr;
+
+    gap:36px;
+
+}
+
+.dropdown-left{
+
+    grid-template-columns:repeat(2,1fr);
+
+    border-right:none;
+
+    padding-right:0;
+
+    padding-bottom:24px;
+
+    border-bottom:1px solid #E8EDF3;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.dropdown-left{
+
+    grid-template-columns:1fr;
+
+    gap:24px;
+
+}
+
+.dropdown-right{
+
+    gap:20px;
+
+}
+
+}
+
+@media(max-width:650px){
+
+.dropdown-section{
+
+    margin-top:52px;
+
+    margin-bottom:52px;
+
+}
+
+.dropdown-section .section-title{
+
+    font-size:26px;
+
+}
+
+.dropdown-layout{
+
+    gap:28px;
+
+}
+
+.dropdown-left{
+
+    padding-bottom:20px;
+
+}
+
+}
+
+/* ==========================================
+   FINAL POLISH
+========================================== */
+
+.dropdown-section *{
+
+    box-sizing:border-box;
+
+}
+
+.dropdown-section .dropdown-wrapper{
+
+    position:relative;
+
+}
+
+.dropdown-section .dropdown-menu{
+
+    z-index:20;
+
+}
+
+.dropdown-section .dropdown-box{
+
+    background:#FFFFFF;
+
+}
+
+.dropdown-section .dropdown-tag{
+
+    transition:.25s;
+
+}
+
+.dropdown-section .dropdown-tag:hover{
+
+    background:#DCECF0;
+
+}
+
+.dropdown-section .tag-remove{
+
+    transition:.25s;
+
+}
+
+.dropdown-section .tag-remove:hover{
+
+    color:#EF4444;
+
+}
+
+.dropdown-section .dropdown-item{
+
+    transition:.2s ease;
+
+}
+
+.dropdown-section .dropdown-item:hover{
+
+    background:#F7F9FB;
+
+}
+
+.dropdown-section .dropdown-box:focus-within{
+
+    border-color:#2FA8A0;
+
+}
